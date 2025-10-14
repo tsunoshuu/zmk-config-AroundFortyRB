@@ -66,7 +66,7 @@
             bindings = <
 &kp V      &kp M         &kp K         &kp R                      &kp L                            &kp TAB      &kp F        &kp Y          &kp U       &kp X
 &kp A      &kp H         &kp T         &kp S                      &kp BACKSPACE                    &kp W        &lt 2 N      &kp I          &kp E       &kp O
-&kp LC(Z)  &kp LC(X)     &kp LC(C)     &kp LC(V)                  &kp LC(LA(V))  &kp LG(LS(S))     &mkp MB1     &mkp MB1     &kp ENTER      &kp COMMA   &kp PERIOD
+&kp LC(Z)  &kp LC(X)     &kp LC(C)     &kp LC(V)                  &kp LC(LA(V))  &kp LG(LS(S))     &mkp MB1     &mkp MB1     &lt 6 ENTER    &kp COMMA   &kp PERIOD
 &kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &mt LEFT_SHIFT LANGUAGE_1  &lt 4 SPACE    &lt 7 LANGUAGE_2  &lt 6 ENTER  &kp AT_SIGN  &kp BACKSPACE  &lt 8 HASH  &kp DELETE
             >;
         };
