@@ -89,19 +89,19 @@
 
         Win-Default_Layer {  // 1
             bindings = <
-&kp V      &kp M         &kp K         &kp R                      &kp L                            &kp TAB      &kp F        &kp Y          &kp U       &kp X
-&kp A      &kp H         &kp T         &kp S                      &kp BACKSPACE                    &kp W        &lt 2 N      &kp I          &kp E       &kp O
-&kp LC(Z)  &kp LC(X)     &kp LC(C)     &kp LC(V)                  &kp LC(LA(V))  &kp LG(LS(S))     &mkp MB1     &mkp MB1     &lt 6 ENTER      &kp COMMA   &kp PERIOD
-&kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &mt LEFT_SHIFT LANGUAGE_1  &lt 4 SPACE    &lt 7 LANGUAGE_2  &lt 6 ENTER  &to 7  &kp BACKSPACE  &lt 8 HASH  &kp DELETE
+&kp V      &kp M         &kp K         &kp R                      &kp L                                   &kp TAB      &kp F        &kp Y          &kp U       &kp X
+&kp A      &kp H         &kp T         &kp S                      &kp BACKSPACE                           &kp W        &lt 2 N      &kp I          &kp E       &kp O
+&kp LC(Z)  &kp LC(X)     &kp LC(C)     &kp LC(V)                  &kp LC(LA(V))         &kp LG(LS(S))     &mkp MB1     &mkp MB1     &lt 6 ENTER    &kp COMMA   &kp PERIOD
+&kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &lt 4 LANGUAGE_1           &mt LEFT_SHIFT SPACE  &lt 7 LANGUAGE_2  &lt 6 ENTER  &to 7        &kp BACKSPACE  &lt 8 HASH  &kp DELETE
             >;
         };
 
         Win-Default_Layer2 {  // 2
             bindings = <
-&kp C      &kp P         &kp G         &kp J                      &kp Q                          &kp ESC      &kp F        &kp Y          &kp U       &kp X
-&kp A      &kp B         &kp D         &kp Z                      &kp DELETE                     &kp W        &trans       &kp I          &kp E       &kp O
-&trans     &trans        &trans        &trans                     &trans       &kp LG(LS(S))     &mkp MB1     &mkp MB1     &lt 6 ENTER      &kp COMMA   &kp PERIOD
-&kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &mt LEFT_SHIFT LANGUAGE_1  &lt 4 SPACE  &lt 7 LANGUAGE_2  &lt 6 ENTER  &kp AT_SIGN  &kp BACKSPACE  &lt 8 HASH  &kp DELETE
+&kp C      &kp P         &kp G         &kp J             &kp Q                                   &kp ESC      &kp F        &kp Y          &kp U       &kp X
+&kp A      &kp B         &kp D         &kp Z             &kp DELETE                              &kp W        &trans       &kp I          &kp E       &kp O
+&trans     &trans        &trans        &trans            &trans                &kp LG(LS(S))     &mkp MB1     &mkp MB1     &lt 6 ENTER      &kp COMMA   &kp PERIOD
+&kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &lt 4 LANGUAGE_1  &mt LEFT_SHIFT SPACE  &lt 7 LANGUAGE_2  &lt 6 ENTER  &kp AT_SIGN  &kp BACKSPACE  &lt 8 HASH  &kp DELETE
             >;
         };
 
@@ -151,10 +151,10 @@
 
         Num_Layer {  // 7
             bindings = <
-&kp F1   &kp F2   &kp F3  &kp F4  &kp F5           &kp PLUS      &kp N1      &kp N2         &kp N3         &kp N4
-&kp F6   &kp F7   &kp F8  &kp F9  &kp F10          &kp EQUAL     &kp N5      &kp N6         &kp N7         &kp N8
+&kp F1   &kp F2   &kp F3  &kp F4  &kp F5           &kp TAB       &kp N1      &kp N2         &kp N3         &kp N4
+&kp F6   &kp F7   &kp F8  &kp F9  &kp F10          &kp BACKSPACE &kp N5      &kp N6         &kp N7         &kp N8
 &kp F11  &kp F12  &trans  &trans  &trans   &trans  &kp ASTERISK  &mkp MB1    &lt 6 ENTER    &kp N9         &kp N0
-&trans   &trans   &trans  &trans  &trans   &trans  &kp ENTER     &to 1  &kp BACKSPACE  &kp AMPERSAND  &kp PERIOD
+&trans   &trans   &trans  &trans  &trans   &trans  &mo 5         &to 1  &kp BACKSPACE  &kp AMPERSAND  &kp PERIOD
             >;
         };
 
