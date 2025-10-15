@@ -92,7 +92,7 @@
 &kp V      &kp M         &kp K         &kp R                      &kp L                            &kp TAB      &kp F        &kp Y          &kp U       &kp X
 &kp A      &kp H         &kp T         &kp S                      &kp BACKSPACE                    &kp W        &lt 2 N      &kp I          &kp E       &kp O
 &kp LC(Z)  &kp LC(X)     &kp LC(C)     &kp LC(V)                  &kp LC(LA(V))  &kp LG(LS(S))     &mkp MB1     &mkp MB1     &lt 6 ENTER      &kp COMMA   &kp PERIOD
-&kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &mt LEFT_SHIFT LANGUAGE_1  &lt 4 SPACE    &lt 7 LANGUAGE_2  &lt 6 ENTER  &kp AT_SIGN  &kp BACKSPACE  &lt 8 HASH  &kp DELETE
+&kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &mt LEFT_SHIFT LANGUAGE_1  &lt 4 SPACE    &lt 7 LANGUAGE_2  &lt 6 ENTER  &to 7  &kp BACKSPACE  &lt 8 HASH  &kp DELETE
             >;
         };
 
@@ -100,12 +100,12 @@
             bindings = <
 &kp C      &kp P         &kp G         &kp J                      &kp Q                          &kp ESC      &kp F        &kp Y          &kp U       &kp X
 &kp A      &kp B         &kp D         &kp Z                      &kp DELETE                     &kp W        &trans       &kp I          &kp E       &kp O
-&trans     &trans        &trans        &trans                     &trans       &kp LG(LS(S))     &mkp MB1     &mkp MB1     &kp ENTER      &kp COMMA   &kp PERIOD
+&trans     &trans        &trans        &trans                     &trans       &kp LG(LS(S))     &mkp MB1     &mkp MB1     &lt 6 ENTER      &kp COMMA   &kp PERIOD
 &kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &mt LEFT_SHIFT LANGUAGE_1  &lt 4 SPACE  &lt 7 LANGUAGE_2  &lt 6 ENTER  &kp AT_SIGN  &kp BACKSPACE  &lt 8 HASH  &kp DELETE
             >;
         };
 
-        Mac-Function_Layer {
+        Mac-Function_Layer {  // 3
             bindings = <
 &kp LG(A)  &kp LG(X)     &kp LG(C)    &kp LG(V)  &kp LG(F)          &kp LESS_THAN         &kp GREATER_THAN       &kp CARET        &kp PERCENT    &kp DOLLAR
 &kp TAB    &kp LEFT_GUI  &kp LS(TAB)  &mkp MB1   &mkp MB2           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp AT_SIGN      &kp AMPERSAND  &kp DOUBLE_QUOTES
@@ -116,7 +116,7 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        Win-Function_Layer {
+        Win-Function_Layer {  // 4
             bindings = <
 &kp LC(A)  &kp LC(X)     &kp LC(C)    &kp LC(V)  &kp LC(LS(V))          &kp LESS_THAN         &kp GREATER_THAN       &kp CARET        &kp PERCENT    &kp DOLLAR
 &kp TAB    &kp LEFT_ALT  &kp LS(TAB)  &mkp MB1   &mkp MB2               &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp AT_SIGN      &kp AMPERSAND  &kp DOUBLE_QUOTES
@@ -127,7 +127,7 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        Mac-Common_Layer {
+        Mac-Common_Layer {  // 5
             bindings = <
 &kp ESCAPE      &trans        &trans       &kp LG(UP_ARROW)    &trans                       &kp LG(W)        &kp LG(LEFT_ARROW)  &mkp MB3        &kp LG(RIGHT_ARROW)  &kp HOME
 &kp TAB         &kp LEFT_GUI  &kp LS(TAB)  &kp LG(LEFT_ARROW)  &kp LG(RIGHT_ARROW)          &kp LG(TAB)      &mkp MB1            &kp UP_ARROW    &mkp MB2             &kp PAGE_UP
@@ -138,7 +138,7 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        Win-Common_Layer {
+        Win-Common_Layer {  //6
             bindings = <
 &kp ESCAPE      &trans        &trans       &kp LG(UP_ARROW)    &trans                       &kp LC(W)          &kp LA(LEFT_ARROW)  &mkp MB3        &kp LA(RIGHT_ARROW)  &kp HOME
 &kp TAB         &kp LEFT_GUI  &kp LS(TAB)  &kp LG(LEFT_ARROW)  &kp LG(RIGHT_ARROW)          &kp LC(PAGE_UP)    &mkp MB1            &kp UP_ARROW    &mkp MB2             &kp PAGE_UP
@@ -149,16 +149,16 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        Num_Layer {
+        Num_Layer {  // 7
             bindings = <
-&kp F1   &kp F2   &kp F3  &kp F4  &kp F5           &kp PLUS      &kp MINUS   &kp NUMBER_7   &kp NUMBER_8   &kp NUMBER_9
-&kp F6   &kp F7   &kp F8  &kp F9  &kp F10          &kp EQUAL     &kp COLON   &kp N4         &kp N5         &kp N6
-&kp F11  &kp F12  &trans  &trans  &trans   &trans  &kp ASTERISK  &kp SLASH   &kp NUMBER_1   &kp NUMBER_2   &kp NUMBER_3
-&trans   &trans   &trans  &trans  &trans   &trans  &kp ENTER     &kp DOLLAR  &kp BACKSPACE  &kp AMPERSAND  &kp N0
+&kp F1   &kp F2   &kp F3  &kp F4  &kp F5           &kp PLUS      &kp N1      &kp N2         &kp N3         &kp N4
+&kp F6   &kp F7   &kp F8  &kp F9  &kp F10          &kp EQUAL     &kp N5      &kp N6         &kp N7         &kp N8
+&kp F11  &kp F12  &trans  &trans  &trans   &trans  &kp ASTERISK  &mkp MB1    &lt 6 ENTER    &kp N9         &kp N0
+&trans   &trans   &trans  &trans  &trans   &trans  &kp ENTER     &to 1  &kp BACKSPACE  &kp AMPERSAND  &kp PERIOD
             >;
         };
 
-        Setting_Layer {
+        Setting_Layer {  // 8
             bindings = <
 &studio_unlock  &trans  &trans  &trans  &trans         &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
 &trans          &trans  &trans  &trans  &trans         &trans        &trans          &trans        &trans        &trans
@@ -169,7 +169,7 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        AutoMouse_Layer {
+        AutoMouse_Layer {  // 9
             bindings = <
 &trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans          &trans  &mkp MB1  &mkp MB3  &mkp MB2  &trans
