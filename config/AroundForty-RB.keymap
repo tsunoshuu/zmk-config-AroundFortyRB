@@ -89,10 +89,10 @@
 
         Win-Default_Layer {  // 1
             bindings = <
-&kp V      &kp M         &kp K         &kp R                      &kp L                                   &kp TAB      &kp F        &kp Y          &kp U       &kp X
-&kp A      &kp H         &kp T         &kp S                      &kp BACKSPACE                           &kp W        &lt 2 N      &kp I          &kp E       &kp O
-&kp LC(Z)  &kp LC(X)     &kp LC(C)     &kp LC(V)                  &kp LC(LA(V))         &kp LG(LS(S))     &mkp MB1     &mkp MB1     &lt 6 ENTER    &kp COMMA   &kp PERIOD
-&kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &lt 4 LANGUAGE_1           &mt LEFT_SHIFT SPACE  &lt 7 LANGUAGE_2  &lt 6 ENTER  &to 7        &kp BACKSPACE  &lt 8 HASH  &kp DELETE
+&kp V      &kp M         &kp K         &kp R             &kp L                                   &kp TAB               &kp F     &kp Y            &kp U       &kp X
+&kp A      &kp H         &kp T         &kp S             &kp BACKSPACE                           &kp W                 &lt 2 N   &kp I            &kp E       &kp O
+&kp LC(Z)  &kp LC(X)     &kp LC(C)     &kp LC(V)         &kp LC(LA(V))         &kp LG(LS(S))     &mkp MB1              &mkp MB1  &lt 6 ENTER      &kp COMMA   &kp PERIOD
+&kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &lt 7 LANGUAGE_1  &mt LEFT_SHIFT SPACE  &lt 4 LANGUAGE_2  &mt LEFT_SHIFT SPACE  &to 7     &lt 6 BACKSPACE  &lt 8 HASH  &kp DELETE
             >;
         };
 
@@ -100,8 +100,8 @@
             bindings = <
 &kp C      &kp P         &kp G         &kp J             &kp Q                                   &kp ESC      &kp F        &kp Y          &kp U       &kp X
 &kp A      &kp B         &kp D         &kp Z             &kp DELETE                              &kp W        &trans       &kp I          &kp E       &kp O
-&trans     &trans        &trans        &trans            &trans                &kp LG(LS(S))     &mkp MB1     &mkp MB1     &lt 6 ENTER      &kp COMMA   &kp PERIOD
-&kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &lt 4 LANGUAGE_1  &mt LEFT_SHIFT SPACE  &lt 7 LANGUAGE_2  &lt 6 ENTER  &kp AT_SIGN  &kp BACKSPACE  &lt 8 HASH  &kp DELETE
+&trans     &trans        &trans        &trans            &trans                &kp LG(LS(S))     &mkp MB1     &mkp MB1     &lt 6 ENTER    &kp COMMA   &kp PERIOD
+&kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &lt 7 LANGUAGE_1  &mt LEFT_SHIFT SPACE  &lt 4 LANGUAGE_2  &lt 6 ENTER  &kp AT_SIGN  &kp BACKSPACE  &lt 8 HASH  &kp DELETE
             >;
         };
 
@@ -118,10 +118,10 @@
 
         Win-Function_Layer {  // 4
             bindings = <
-&kp LC(A)  &kp LC(X)     &kp LC(C)    &kp LC(V)  &kp LC(LS(V))          &kp LESS_THAN         &kp GREATER_THAN       &kp CARET        &kp PERCENT    &kp DOLLAR
-&kp TAB    &kp LEFT_ALT  &kp LS(TAB)  &mkp MB1   &mkp MB2               &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp AT_SIGN      &kp AMPERSAND  &kp DOUBLE_QUOTES
-&trans     &trans        &trans       &trans     &mkp MB3       &trans  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp EXCLAMATION  &kp QUESTION   &kp SQT
-&trans     &trans        &trans       &trans     &trans         &trans  &kp ENTER             &kp COLON              &kp BACKSPACE    &kp BACKSLASH  &kp HASH
+&kp F1   &kp F2   &kp F3              &kp F4      &kp F5            &kp LESS_THAN         &kp JP_LBRACKET  &kp JP_RBRACKET   &kp PERCENT    &kp DOLLAR
+&kp F6   &kp F7   &kp F8              &kp F9      &kp F10           &kp LEFT_PARENTHESIS  &kp JP_LPAREN    &kp JP_RPAREN     &kp JP_LBRACE  &kp JP_RBRACE
+&kp F11  &kp F12  &kp LC(LA(DELETE))  &kp ESCAPE  &mkp MB3  &trans  &kp LESS_THAN         &kp LESS_THAN    &kp GREATER_THAN  &kp QUESTION   &kp SQT
+&trans   &trans   &trans              &trans      &trans    &trans  &kp ENTER             &kp COLON         &kp BACKSPACE    &kp BACKSLASH  &kp HASH
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -140,10 +140,10 @@
 
         Win-Common_Layer {  //6
             bindings = <
-&kp ESCAPE      &trans        &trans       &kp LG(UP_ARROW)    &trans                       &kp LC(W)          &kp LA(LEFT_ARROW)  &mkp MB3        &kp LA(RIGHT_ARROW)  &kp HOME
-&kp TAB         &kp LEFT_GUI  &kp LS(TAB)  &kp LG(LEFT_ARROW)  &kp LG(RIGHT_ARROW)          &kp LC(PAGE_UP)    &mkp MB1            &kp UP_ARROW    &mkp MB2             &kp PAGE_UP
-&kp LEFT_SHIFT  &trans        &trans       &kp LG(DOWN_ARROW)  &trans               &trans  &kp LC(PAGE_DOWN)  &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW      &kp PAGE_DOWN
-&kp LCTRL       &trans        &trans       &trans              &trans               &trans  &trans             &kp LC(T)           &trans          &trans               &kp END
+&kp JP_AT       &kp EXCLAMATION &kp JP_DQUOTE    &kp LG(UP_ARROW) &trans                       &kp JP_PIPE      &kp JP_EQUAL   &kp JP_TILDE      &kp JP_CARET    &kp PERCENT
+&kp HASH        &kp QUESTION    &kp JP_QUOTE     &kp SEMICOLON    &kp LG(RIGHT_ARROW)          &kp JP_AMPERSAND &kp JP_PLUS    &kp MINUS         &kp JP_ASTERISK &kp SLASH
+&kp LEFT_SHIFT  &trans          &kp JP_BACKQUOTE &kp JP_COLON     &trans               &trans  &kp DOLLAR       &kp LEFT_ARROW &kp JP_UNDERSCORE &kp JP_YEN      &kp BACKSLASH
+&kp LCTRL       &trans          &trans           &trans           &trans               &trans  &trans           &kp LC(T)           &trans          &trans               &kp END
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -151,10 +151,10 @@
 
         Num_Layer {  // 7
             bindings = <
-&kp F1   &kp F2   &kp F3  &kp F4  &kp F5           &kp TAB       &kp N1      &kp N2         &kp N3         &kp N4
-&kp F6   &kp F7   &kp F8  &kp F9  &kp F10          &kp BACKSPACE &kp N5      &kp N6         &kp N7         &kp N8
-&kp F11  &kp F12  &trans  &trans  &trans   &trans  &kp MINUS     &mkp MB1    &lt 6 ENTER    &kp N9         &kp N0
-&trans   &trans   &trans  &trans  &trans   &trans  &mo 5         &to 1       &kp BACKSPACE  &kp AMPERSAND  &kp PERIOD
+&kp F1   &kp F2          &kp UP_ARROW    &kp F4           &kp F5           &kp N1     &kp N2    &kp N3           &kp N4         &kp N5
+&kp F6   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp F10          &kp N6     &kp N7    &kp N8           &kp N9         &kp N0
+&kp F11  &kp F12         &trans          &trans           &trans   &trans  &kp MINUS  &mkp MB1  &lt 6 ENTER      &kp COMMA      &kp PERIOD
+&trans   &trans          &trans          &trans           &trans   &trans  &kp SPACE  &to 1     &lt 6 BACKSPACE  &kp AMPERSAND  &kp PERIOD
             >;
         };
 
