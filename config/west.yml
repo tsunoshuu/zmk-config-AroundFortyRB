@@ -19,3 +19,18 @@ manifest:
       revision: main
   self:
     path: config
+    
+manifest:
+  remotes:
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    - name: tsunoshuu  # または eswai 等、参照先のアカウント名
+      url-base: https://github.com/tsunoshuu
+  projects:
+    - name: zmk
+      remote: zmkfirmware
+      revision: main
+      import: app/west.yml
+    - name: zmk-naginata  # リポジトリ名
+      remote: tsunoshuu
+      revision: main
