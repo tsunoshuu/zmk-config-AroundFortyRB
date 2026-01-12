@@ -208,7 +208,7 @@
 &trans          &trans  &trans  &trans  &trans  &to 1  &bootloader   &studio_unlock  &sys_reset    &trans        &trans
             >;
 
-            sensor-bindings = <&scroll_up_down>;
+            sensor-bindings = <&scroll_up_down>
         };
 
         AutoMouse_Layer: AutoMouse_Layer {  // 9
