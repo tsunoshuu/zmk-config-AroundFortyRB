@@ -16,11 +16,9 @@
 };
 
 / {
-    AutoMouse_Layer: AutoMouse_Layer {
-        // compatibleプロパティが必須です。
-        // ※もし使用しているモジュールが別のcompatible名を求めている場合は書き換えてください
-        compatible = "zmk,input-processor-temp-layer"; 
-        
+    automouse_layer_proc: automouse_layer_proc {
+        compatible = "zmk,input-processor-temp-layer";
+        #input-processor-cells = <1>;
         require-prior-idle-ms = <200>;
         excluded-positions = <
             16
@@ -33,7 +31,7 @@
         compatible = "zmk,input-listener";
         device = <&trackball>;
 
-        input-processors = <&AutoMouse_Layer 9>;
+        input-processors = <&automouse_layer_proc 9>;
     };
 };
 
@@ -77,5 +75,3 @@
 
     };
 };
-
-
