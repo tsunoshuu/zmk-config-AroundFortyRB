@@ -18,7 +18,7 @@
 / {
     automouse_layer_proc: automouse_layer_proc {
         compatible = "zmk,input-processor-temp-layer";
-        #input-processor-cells = <1>;
+        #input-processor-cells = <2>;
         require-prior-idle-ms = <200>;
         excluded-positions = <
             16
@@ -31,7 +31,7 @@
         compatible = "zmk,input-listener";
         device = <&trackball>;
 
-        input-processors = <&automouse_layer_proc 9>;
+        input-processors = <&automouse_layer_proc 9 2000>;
     };
 };
 
