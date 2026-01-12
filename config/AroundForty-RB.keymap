@@ -214,7 +214,7 @@
         AutoMouse_Layer: AutoMouse_Layer {  // 9
             bindings = <
 &trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans          &trans  &mkp MB1  &mkp MB3  &mkp MB2  &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &mkp MB1  &lt 6 ENTER  &mkp MB2  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans
             >;
