@@ -211,7 +211,7 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        AutoMouse_Layer {  // 9
+        AutoMouse_Layer: AutoMouse_Layer {  // 9
             bindings = <
 &trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans          &trans  &mkp MB1  &mkp MB3  &mkp MB2  &trans

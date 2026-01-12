@@ -15,16 +15,20 @@
             ;
 };
 
-&AutoMouse_Layer {
-    require-prior-idle-ms = <200>;
-    excluded-positions = <
-        16
-        17
-        18
-    >;
-}
-
 / {
+    AutoMouse_Layer: AutoMouse_Layer {
+        // compatibleプロパティが必須です。
+        // ※もし使用しているモジュールが別のcompatible名を求めている場合は書き換えてください
+        compatible = "zmk,input-processor-temp-layer"; 
+        
+        require-prior-idle-ms = <200>;
+        excluded-positions = <
+            16
+            17
+            18
+        >;
+    };
+
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
