@@ -39,10 +39,6 @@
     quick-tap-ms = <0>;
 };
 
-&zip_temp_layer {
-    input-processors = <&zip_temp_layer 9>;
-}
-
 / {
     combos {
         compatible = "zmk,combos";
