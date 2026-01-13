@@ -31,7 +31,7 @@
         compatible = "zmk,input-listener";
         device = <&trackball>;
 
-        input-processors = <&automouse_layer_proc 9 2000>;
+        input-processors = <&zip_temp_layer_viewport 10 &zip_scroll_mapper>,　<&automouse_layer_proc 9 2000>;
     };
 };
 
@@ -71,7 +71,7 @@
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         //automouse-layer = <9>;
-        scroll-layers = <6>;
+        //scroll-layers = <6>;
 
     };
 };
