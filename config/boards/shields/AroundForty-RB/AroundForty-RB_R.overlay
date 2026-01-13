@@ -72,6 +72,7 @@
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         //automouse-layer = <9>;
         scroll-layers = <10>;
+        invert-scroll-y;
 
     };
 };
