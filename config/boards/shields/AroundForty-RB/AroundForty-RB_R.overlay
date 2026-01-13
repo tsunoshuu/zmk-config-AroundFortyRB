@@ -16,6 +16,17 @@
 };
 
 / {
+    zip_temp_layer_viewport: zip_temp_layer_viewport {
+        compatible = "zmk,input-processor-temp-layer-viewport";
+        #input-processor-cells = <2>;
+    };
+
+    /* マウスの動きをスクロールに変換するプロセッサの定義 */
+    zip_scroll_mapper: zip_scroll_mapper {
+        compatible = "zmk,input-processor-mouse-xy-to-scroll";
+        #input-processor-cells = <0>;
+    };
+    
     automouse_layer_proc: automouse_layer_proc {
         compatible = "zmk,input-processor-temp-layer";
         #input-processor-cells = <2>;
