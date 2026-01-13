@@ -213,11 +213,22 @@
 
         AutoMouse_Layer: AutoMouse_Layer {  // 9
             bindings = <
-&trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans          &trans  &mkp MB1  &lt 6 ENTER  &mkp MB2  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans    &trans        &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans    &mkp MB1  &lt 10 ENTER  &mkp MB2
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans        &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans        &trans
             >;
         };
+
+        SCroll_Layer {  // 10
+            bindings = <
+&trans          &trans            &trans        &trans        &trans          &trans  &trans    &trans    &trans  &trans
+&trans          &trans            &trans        &trans        &trans          &trans  &trans    &mkp MB1  &trans  &mkp MB2
+&kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_GUI  &trans  &trans  &trans  &trans    &trans    &trans  &trans
+&trans          &trans            &trans        &trans        &trans  &trans  &trans  &trans    &trans    &trans  &trans
+            >;
+            sensor-bindings = <&scroll_up_down>;
+        };
+
     };
 };
