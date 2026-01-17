@@ -19,13 +19,36 @@
 };
 
 / {
+    /* Valid transforms for axis locking */
+    zip_scroll_transform_ver: zip_scroll_transform_ver {
+        compatible = "zmk,input-processor-transform";
+        #input-processor-cells = <0>;
+        type = <INPUT_EV_REL>;
+        x-scale = <0>;
+        y-scale = <1>;
+    };
+
+    zip_scroll_transform_hor: zip_scroll_transform_hor {
+        compatible = "zmk,input-processor-transform";
+        #input-processor-cells = <0>;
+        type = <INPUT_EV_REL>;
+        x-scale = <1>;
+        y-scale = <0>;
+    };
+
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
         input-processors = <&zip_xy_scaler 1 1>, <&zip_temp_layer 9 700>;
-        scroll-layer {
-            layers = <4 10>;
-            input-processors = <&zip_xy_to_scroll_mapper>;
+        
+        scroll-layer-ver {
+            layers = <10>;
+            input-processors = <&zip_xy_scaler 1 2>, <&zip_scroll_transform_ver>, <&zip_xy_to_scroll_mapper>;
+        };
+        
+        scroll-layer-hor {
+            layers = <7>;
+            input-processors = <&zip_xy_scaler 1 2>, <&zip_scroll_transform_hor>, <&zip_xy_to_scroll_mapper>;
         };
     };
 };
