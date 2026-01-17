@@ -22,7 +22,7 @@
     /* Valid transforms for axis locking */
     zip_scroll_transform_ver: zip_scroll_transform_ver {
         compatible = "zmk,input-processor-transform";
-        #input-processor-cells = <0>;
+        #input-processor-cells = <1>;
         type = <INPUT_EV_REL>;
         x-codes = <INPUT_REL_X>;
         y-codes = <INPUT_REL_Y>;
@@ -32,7 +32,7 @@
 
     zip_scroll_transform_hor: zip_scroll_transform_hor {
         compatible = "zmk,input-processor-transform";
-        #input-processor-cells = <0>;
+        #input-processor-cells = <1>;
         type = <INPUT_EV_REL>;
         x-codes = <INPUT_REL_X>;
         y-codes = <INPUT_REL_Y>;
@@ -47,12 +47,12 @@
         
         scroll-layer-ver {
             layers = <10>;
-            input-processors = <&zip_xy_scaler 1 2>, <&zip_scroll_transform_ver>, <&zip_xy_to_scroll_mapper>;
+            input-processors = <&zip_xy_scaler 1 2>, <&zip_scroll_transform_ver 0>, <&zip_xy_to_scroll_mapper>;
         };
         
         scroll-layer-hor {
             layers = <7>;
-            input-processors = <&zip_xy_scaler 1 2>, <&zip_scroll_transform_hor>, <&zip_xy_to_scroll_mapper>;
+            input-processors = <&zip_xy_scaler 1 2>, <&zip_scroll_transform_hor 0>, <&zip_xy_to_scroll_mapper>;
         };
     };
 };
