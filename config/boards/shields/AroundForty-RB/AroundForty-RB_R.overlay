@@ -17,9 +17,10 @@
             , <&gpio0 10 GPIO_ACTIVE_HIGH>
             ;
     /* Enable NFC pins as GPIO */
-    &uicr {
-        nfct-pins-as-gpios;
-    };
+};
+
+&uicr {
+    nfct-pins-as-gpios;
 };
 
 / {
