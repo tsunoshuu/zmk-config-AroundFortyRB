@@ -235,7 +235,7 @@
             bindings = <
 &trans          &trans            &trans        &trans        &trans          &trans  &trans    &trans    &trans    &trans
 &trans          &trans            &trans        &trans        &trans          &trans  &trans    &mkp MB1  &trans    &mkp MB2
-&kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_GUI  &trans  &trans  &trans  &mkp MB1  &trans    &mo 7     &trans
+&kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_GUI  &trans  &trans  &trans  &mkp MB1  &trans    &trans    &trans
 &trans          &trans            &trans        &trans        &trans  &trans  &trans  &trans    &trans    &trans    &trans
             >;
             sensor-bindings = <&scroll_up_down>;
