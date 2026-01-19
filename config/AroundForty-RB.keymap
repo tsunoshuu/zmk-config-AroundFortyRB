@@ -142,7 +142,7 @@
             bindings = <
 &kp V      &kp M         &kp K         &kp R             &kp L                                   &kp TAB               &kp F     &kp Y            &kp U       &kp X
 &kp A      &kp H         &kp T         &kp S             &kp BACKSPACE                           &kp W                 &lt 2 N   &kp I            &kp E       &kp O
-&kp LC(Z)  &kp LC(X)     &kp LC(C)     &kp LC(V)         &kp LC(LA(V))         &kp LG(LS(S))     &mkp MB1              &mkp MB1  &lt 6 ENTER      &kp COMMA   &kp PERIOD
+&kp LC(Z)  &kp LC(X)     &kp LC(C)     &kp LC(V)         &kp LC(LA(V))         &kp LG(LS(S))     &mkp MB1              &mkp MB1  &lt 10 ENTER     &kp COMMA   &kp PERIOD
 &kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &lt 7 LANGUAGE_2  &mt LEFT_SHIFT SPACE  &lt 4 LANGUAGE_2  &mt LEFT_SHIFT SPACE  &to 7     &lt 6 LANGUAGE_1  &lt 8 HASH  &kp DELETE
             >;
         };
@@ -151,7 +151,7 @@
             bindings = <
 &kp C      &kp P         &kp G         &kp J             &kp Q                                   &kp ESC      &kp F        &kp Y          &kp U       &kp X
 &kp A      &kp B         &kp D         &kp Z             &kp DELETE                              &kp W        &trans       &kp I          &kp E       &kp O
-&ng Z      &ng X         &ng C         &ng V             &ng B                 &kp LG(LS(S))     &mkp MB1     &mkp MB1     &lt 6 ENTER    &kp COMMA   &kp PERIOD
+&ng Z      &ng X         &ng C         &ng V             &ng B                 &kp LG(LS(S))     &mkp MB1     &mkp MB1     &lt 10 ENTER   &kp COMMA   &kp PERIOD
 &kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &lt 7 LANGUAGE_1  &mt LEFT_SHIFT SPACE  &lt 4 LANGUAGE_2  &lt 6 ENTER  &kp AT_SIGN  &kp BACKSPACE  &lt 8 HASH  &kp DELETE
             >;
         };
