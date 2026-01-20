@@ -96,8 +96,7 @@
             bindings = <&kp LEFT_GUI>;
             key-positions = <6 16>;
         };
-
-        mbt_2 {
+        mbt_btn2 {
             bindings = <&mkp MB2>;
             key-positions = <27 28>;
         };
@@ -238,7 +237,7 @@
             bindings = <
 &trans          &trans            &trans        &trans        &trans          &trans  &trans    &trans    &trans    &trans
 &trans          &trans            &trans        &trans        &trans          &trans  &trans    &mkp MB1  &trans    &mkp MB2
-&kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_GUI  &trans  &trans  &trans  &trans    &mo 7     &trans    &trans
+&kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_GUI  &trans  &trans  &trans  &trans    &trans    &mo 7     &trans
 &trans          &trans            &trans        &mo 7         &trans  &trans  &trans  &trans    &trans    &trans    &trans
             >;
             sensor-bindings = <&scroll_up_down>;
