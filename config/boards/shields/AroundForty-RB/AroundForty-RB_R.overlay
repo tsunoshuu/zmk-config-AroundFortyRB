@@ -53,7 +53,7 @@
         scroll-layer-hor {
             layers = <7>;
             /* Mask Y (scale 0/1), Scale X (1/2) */
-            input-processors = <&zip_scaler_y 0 1>, <&zip_xy_scaler 1 5>, <&zip_xy_to_scroll_mapper>;
+            input-processors = <&zip_scaler_y 0 1>, <&zip_xy_scaler (-1) 5>, <&zip_xy_to_scroll_mapper>;
         };
     };
 };
