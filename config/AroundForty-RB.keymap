@@ -98,6 +98,10 @@
             bindings = <&kp LEFT_GUI>;
             key-positions = <6 16>;
         };
+        mbt_2 {
+            bindings = <&mkp MB2>;
+            key-positions = <27 28>;
+        };
     };
 
     macros {
