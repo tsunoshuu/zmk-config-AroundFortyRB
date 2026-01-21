@@ -98,7 +98,7 @@
         };
         mbt_btn2 {
             bindings = <&mkp MB2>;
-            key-positions = <27 28>;
+            key-positions = <7 8>;
         };
     };
 
@@ -128,6 +128,16 @@
 
             tap-ms = <20>;
         };
+
+        htp: htp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HTP";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <0>;
+            bindings = <&kp>, <&kp>;
+        };
     };
 
     keymap {
@@ -144,10 +154,10 @@
 
         Win-Default_Layer {  // 1
             bindings = <
-&kp V      &kp M         &kp K         &kp R             &kp L                                   &kp TAB               &kp F     &kp Y            &kp U       &kp X
-&kp A      &kp H         &kp T         &kp S             &kp BACKSPACE                           &kp W                 &lt 2 N   &kp I            &kp E       &kp O
-&kp LC(Z)  &kp LC(X)     &kp LC(C)     &kp LC(V)         &kp LC(LA(V))         &kp LG(LS(S))     &mkp MB1              &mkp MB1  &lt 10 ENTER     &kp COMMA   &kp PERIOD
-&kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &lt 7 LANGUAGE_2  &mt LEFT_SHIFT SPACE  &lt 4 LANGUAGE_2  &mt LEFT_SHIFT SPACE  &to 7     &lt 6 LANGUAGE_1  &lt 8 HASH  &kp DELETE
+&kp W         &htp LC(X) X  &kp M         &kp G             &kp J                                       &kp BACKSPACE         &kp PERIOD  &mkp MB1          &lt 10 ENTER  &kp TAB
+&htp LC(C) C  &kp S         &kp N         &kp T             &kp K                                       &kp COMMA             &kp A       &kp E             &kp I         &kp H
+&htp LC(P) P  &kp F         &kp L         &kp D             &htp LC(V) V          &kp LG(LS(S))         &trans                &kp U       &kp O             &kp Y         &kp B
+&kp LCTRL     &kp LEFT_ALT  &kp LEFT_GUI  &lt 7 LANGUAGE_2  &mt LEFT_SHIFT SPACE  &lt 4 LANGUAGE_2      &mt LEFT_SHIFT SPACE  &to 7       &lt 6 LANGUAGE_1  &lt 8 HASH    &kp DELETE
             >;
         };
 
