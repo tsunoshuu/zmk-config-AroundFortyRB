@@ -154,10 +154,10 @@
 
         Win-Default_Layer {  // 1
             bindings = <
-&kp W         &htp LC(X) X  &kp M         &kp G             &kp J                                       &kp BACKSPACE         &kp PERIOD  &mkp MB1          &lt 10 ENTER  &kp TAB
-&htp LC(C) C  &kp S         &kp N         &kp T             &kp K                                       &kp COMMA             &kp A       &kp E             &kp I         &kp H
-&htp LC(P) P  &kp F         &kp L         &kp D             &htp LC(V) V          &kp LG(LS(S))         &trans                &kp U       &kp O             &kp Y         &kp B
-&kp LCTRL     &kp LEFT_ALT  &kp LEFT_GUI  &lt 7 LANGUAGE_2  &mt LEFT_SHIFT SPACE  &lt 4 LANGUAGE_2      &mt LEFT_SHIFT SPACE  &to 7       &lt 6 LANGUAGE_1  &lt 8 HASH    &kp DELETE
+&kp W         &htp LC(X) X  &kp M         &kp G             &kp J                                   &kp BACKSPACE         &kp PERIOD  &mkp MB1          &lt 10 ENTER  &kp TAB
+&htp LC(C) C  &kp S         &kp N         &kp T             &kp K                                   &kp COMMA             &kp A       &kp E             &kp I         &kp H
+&htp LC(P) P  &kp F         &kp L         &kp D             &htp LC(V) V      &kp LG(LS(S))         &trans                &kp U       &kp O             &kp Y         &kp B
+&kp LCTRL     &kp LEFT_ALT  &kp LEFT_GUI  &lt 7 LANGUAGE_2  &mt LEFT_SHIFT R  &lt 4 LANGUAGE_2      &mt LEFT_SHIFT SPACE  &to 7       &lt 6 LANGUAGE_1  &lt 8 HASH    &kp DELETE
             >;
         };
 
