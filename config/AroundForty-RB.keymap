@@ -144,14 +144,23 @@
 
         Win-Default_Layer {  // 1
             bindings = <
-&kp W         &kp X           &kp M         &kp G             &kp J                                   &kp BACKSPACE         &kp PERIOD  &mkp MB1          &lt 3 ENTER   &kp TAB
+&kp W         &kp X           &kp M         &kp G             &kp J                                   &kp DELETE            &kp PERIOD  &mkp MB1          &lt 4 ENTER   &kp TAB
 &kp C         &kp S           &kp N         &kp T             &kp K                                   &kp COMMA             &kp A       &kp E             &kp I         &kp H
 &kp P         &kp F           &kp L         &kp D             &kp V             &kp LG(LS(S))         &kp Q                 &kp U       &kp O             &kp Y         &kp B
-&kp LCTRL     &mt LEFT_ALT Z  &kp LEFT_GUI  &lt 6 LANGUAGE_2  &mt LEFT_SHIFT R  &lt 3 BACKSPACE       &mt LEFT_SHIFT SPACE  &to 6       &lt 5 LANGUAGE_1  &lt 7 HASH    &kp DELETE
+&kp LCTRL     &mt LEFT_ALT Z  &kp LEFT_GUI  &lt 7 LANGUAGE_2  &mt LEFT_SHIFT R  &lt 4 BACKSPACE       &mt LEFT_SHIFT SPACE  &to 7       &lt 6 LANGUAGE_1  &lt 8 HASH    &kp DELETE
             >;
         };
 
-        Mac-Function_Layer { // 2
+Naginata_Layer { // 2
+            bindings = <
+&ng Q             &ng W         &ng E         &ng R             &ng T                          &ng Y                 &ng U  &ng I             &ng O       &ng P
+&ng A             &ng S         &ng D         &ng F             &ng G                          &ng H                 &ng J  &ng K             &ng L       &ng MINUS
+&ng Z             &ng X         &ng C         &ng V             &ng B      &trans              &ng N                 &ng M  &ng COMMA         &ng PERIOD  &ng RS(SLASH)
+&kp LCTRL         &kp LEFT_ALT  &kp LEFT_GUI  &lt 6 LANGUAGE_2  &ng SPACE  &lt 3 BACKSPACE     &mt LEFT_SHIFT SPACE  &to 6  &lt 5 LANGUAGE_1  &lt 7 HASH  &kp DELETE
+            >;
+        };
+
+        Mac-Function_Layer { // 3
             bindings = <
 &kp LG(A)  &kp LG(X)     &kp LG(C)    &kp LG(V)  &kp LG(F)          &kp LESS_THAN         &kp GREATER_THAN       &kp CARET        &kp PERCENT    &kp DOLLAR
 &kp TAB    &kp LEFT_GUI  &kp LS(TAB)  &mkp MB1   &mkp MB2           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp AT_SIGN      &kp AMPERSAND  &kp DOUBLE_QUOTES
@@ -162,7 +171,7 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        Win-Function_Layer { // 3
+        Win-Function_Layer { // 4
             bindings = <
 &kp F1   &kp F2   &kp F3              &kp F4      &kp F5            &kp LESS_THAN         &kp JP_LBRACKET  &kp JP_RBRACKET   &kp PERCENT    &kp DOLLAR
 &kp F6   &kp F7   &kp F8              &kp F9      &kp F10           &kp LEFT_PARENTHESIS  &kp JP_LPAREN    &kp JP_RPAREN     &kp JP_LBRACE  &kp JP_RBRACE
@@ -173,7 +182,7 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        Mac-Common_Layer { // 4
+        Mac-Common_Layer { // 5
             bindings = <
 &kp ESCAPE      &trans        &trans       &kp LG(UP_ARROW)    &trans                       &kp LG(W)        &kp LG(LEFT_ARROW)  &mkp MB3        &kp LG(RIGHT_ARROW)  &kp HOME
 &kp TAB         &kp LEFT_GUI  &kp LS(TAB)  &kp LG(LEFT_ARROW)  &kp LG(RIGHT_ARROW)          &kp LG(TAB)      &mkp MB1            &kp UP_ARROW    &mkp MB2             &kp PAGE_UP
@@ -184,7 +193,7 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        Win-Common_Layer { // 5
+        Win-Common_Layer { // 6
             bindings = <
 &kp JP_AT       &kp EXCLAMATION  &kp JP_DQUOTE     &kp LG(UP_ARROW)  &trans                       &kp JP_PIPE       &kp JP_EQUAL    &kp JP_TILDE       &kp JP_CARET     &kp PERCENT
 &kp HASH        &kp QUESTION     &kp JP_QUOTE      &kp SEMICOLON     &kp LG(RIGHT_ARROW)          &kp JP_AMPERSAND  &kp JP_PLUS     &kp MINUS          &kp JP_ASTERISK  &kp SLASH
@@ -195,7 +204,7 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        Num_Layer { // 6
+        Num_Layer { // 7
             bindings = <
 &kp F1   &kp F2          &kp UP_ARROW    &kp F4           &kp F5           &kp N1     &kp N2    &kp N3           &kp N4         &kp N5
 &kp F6   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp F10          &kp N6     &kp N7    &kp N8           &kp N9         &kp N0
@@ -204,7 +213,7 @@
             >;
         };
 
-        Setting_Layer { // 7
+        Setting_Layer { // 8
             bindings = <
 &studio_unlock  &trans  &trans  &trans  &trans         &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
 &trans          &trans  &trans  &trans  &trans         &trans        &trans          &trans        &trans        &trans
@@ -215,7 +224,7 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        AutoMouse_Layer { // 8
+        AutoMouse_Layer { // 9
             bindings = <
 &trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans          &trans  &mkp MB1  &mkp MB3  &mkp MB2  &trans
