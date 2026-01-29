@@ -172,19 +172,19 @@
 
         Win-Default_Layer {  // 1
             bindings = <
-&kp W         &kp X           &kp M         &kp G             &kp J                                 &kp DELETE            &kp U       &kp O             &kp Y         &kp B
-&kp C         &kp S           &kp N         &kp T             &kp K                                 &kp BACKSPACE         &kp A       &kp E             &kp I         &kp H
-&kp P         &kp F           &kp L         &kp D             &kp V                &kp LG(LS(S))    &kp TAB               &mkp MB1    &lt 4 ENTER       &kp COMMA     &kp PERIOD
-&kp LCTRL     &kp LEFT_ALT   &kp LEFT_GUI  &lt 7 LANGUAGE_2  &mt LEFT_SHIFT SPACE  &lt 4 Z          &mt LEFT_SHIFT R      &to 7       &lt 6 LANGUAGE_1  &lt 8 HASH    &kp DELETE
+&kp W         &kp X           &kp M         &kp G             &kp J                                 &kp BACKSPACE     &kp U       &kp O             &kp Y         &kp B
+&kp C         &kp S           &kp N         &kp T             &kp K                                 &kp DELETE        &kp A       &kp E             &kp I         &kp H
+&kp P         &kp F           &kp L         &kp D             &kp V                &kp LG(LS(S))    &kp TAB           &mkp MB1    &lt 4 ENTER       &kp COMMA     &kp PERIOD
+&kp LCTRL     &kp LEFT_ALT   &kp LEFT_GUI  &lt 7 LANGUAGE_2  &mt LEFT_SHIFT SPACE  &lt 4 Z          &mt LEFT_SHIFT R  &to 7       &lt 6 LANGUAGE_1  &lt 8 HASH    &kp DELETE
             >;
         };
 
         Naginata_Layer { // 2
             bindings = <
-&ng Q             &ng W         &ng E         &ng R             &ng T                          &ng Y                 &ng U  &ng I             &ng O       &ng P
-&ng A             &ng S         &ng D         &ng F             &ng G                          &ng H                 &ng J  &ng K             &ng L       &ng SEMI
-&ng Z             &ng X         &ng C         &ng V             &ng B      &trans              &ng N                 &ng M  &ng COMMA         &ng PERIOD  &ng SLASH
-&kp LCTRL         &kp LEFT_ALT  &kp LEFT_GUI  &lt 7 LANGUAGE_2  &ng SPACE  &lt 4 BACKSPACE     &mt LEFT_SHIFT SPACE  &to 7  &lt 6 LANGUAGE_1  &lt 8 HASH  &kp DELETE
+&ng Q             &ng W         &ng E         &ng R             &ng T                          &ng Y  &ng U     &ng I             &ng O       &ng P
+&ng A             &ng S         &ng D         &ng F             &ng G                          &ng H  &ng J     &ng K             &ng L       &ng SEMI
+&ng Z             &ng X         &ng C         &ng V             &ng B      &trans              &ng N  &mkp MB1  &lt 4 ENTER       &ng PERIOD  &ng SLASH
+&kp LCTRL         &kp LEFT_ALT  &kp LEFT_GUI  &lt 7 LANGUAGE_2  &ng SPACE  &lt 4 BACKSPACE     &ng M  &to 7     &lt 6 LANGUAGE_1  &lt 8 HASH  &kp DELETE
             >;
         };
 
