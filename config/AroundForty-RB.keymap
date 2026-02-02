@@ -137,7 +137,6 @@
                 = <&macro_tap &kp LANGUAGE_2 &kp INTERNATIONAL_5 &to 1>
                 ;
         };
-    };
         lm_win_ctrl: lm_win_ctrl {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
