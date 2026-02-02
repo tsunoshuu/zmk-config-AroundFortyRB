@@ -138,6 +138,36 @@
                 ;
         };
     };
+        lm_win_ctrl: lm_win_ctrl {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &mo 1 &kp LCTRL>
+                , <&macro_pause_for_release>
+                , <&macro_release &mo 1 &kp LCTRL>;
+            label = "LAYER_MOD_WIN_CTRL";
+        };
+
+        lm_win_alt: lm_win_alt {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &mo 1 &kp LEFT_ALT>
+                , <&macro_pause_for_release>
+                , <&macro_release &mo 1 &kp LEFT_ALT>;
+            label = "LAYER_MOD_WIN_ALT";
+        };
+
+        lm_win_gui: lm_win_gui {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &mo 1 &kp LEFT_GUI>
+                , <&macro_pause_for_release>
+                , <&macro_release &mo 1 &kp LEFT_GUI>;
+            label = "LAYER_MOD_WIN_GUI";
+        };
+    };
 
     behaviors {
         lt_to_layer_0: lt_to_layer_0 {
@@ -184,7 +214,7 @@
 &ng Q             &ng W         &ng E         &ng R             &ng T                          &ng Y  &ng U     &ng I             &ng O       &ng P
 &ng A             &ng S         &ng D         &ng F             &ng G                          &ng H  &ng J     &ng K             &ng L       &ng SEMI
 &ng Z             &ng X         &ng C         &ng V             &ng B      &trans              &ng N  &mkp MB1  &lt 4 ENTER       &ng PERIOD  &ng SLASH
-&kp LCTRL         &kp LEFT_ALT  &kp LEFT_GUI  &lt 7 LANGUAGE_2  &ng SPACE  &lt 4 BACKSPACE     &ng M  &to 7     &lt 6 LANGUAGE_1  &lt 8 HASH  &kp DELETE
+&lm_win_ctrl      &lm_win_alt   &lm_win_gui   &lt 7 LANGUAGE_2  &ng SPACE  &lt 4 BACKSPACE     &ng M  &to 7     &lt 6 LANGUAGE_1  &lt 8 HASH  &kp DELETE
             >;
         };
 
