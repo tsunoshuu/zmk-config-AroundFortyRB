@@ -1,0 +1,114 @@
+/*
+ * せおと配列 (Seoto Layout) 関連の定義 (マクロ、ビヘイビア、切り替え)
+ */
+#pragma once
+
+/ {
+    macros {
+        // せおと配列 有効化 (かな入力モード + レイヤー切替)
+        seoto_on: seoto_on {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LANGUAGE_1 &to LAYER_SEOTO>;
+            label = "SEOTO_ON";
+        };
+
+        // せおと配列 解除 (英数モード + デフォルトレイヤーへ復帰)
+        seoto_off: seoto_off {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LANGUAGE_2 &to LAYER_MAC>;
+            label = "SEOTO_OFF";
+        };
+
+        /*
+         * ローマ字拡張マクロ
+         * せおと配列では普段使用頻度の低いアルファベットを日本語入力に割り当てる設計:
+         * - X = YA (や / ゃ)
+         * - J = YU (ゆ / ゅ)
+         * - Q = YO (よ / ょ)
+         */
+        seoto_ya: seoto_ya {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap &kp Y &kp A>;
+            label = "SEOTO_YA";
+        };
+
+        seoto_yu: seoto_yu {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap &kp Y &kp U>;
+            label = "SEOTO_YU";
+        };
+
+        seoto_yo: seoto_yo {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap &kp Y &kp O>;
+            label = "SEOTO_YO";
+        };
+
+        // 補助入力マクロ
+        seoto_nn: seoto_nn {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap &kp N &kp N>;
+            label = "SEOTO_NN"; // 「ん」
+        };
+
+        seoto_ltu: seoto_ltu {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap &kp L &kp T &kp U>;
+            label = "SEOTO_LTU"; // 「っ」
+        };
+
+        // せおと配列中の修飾キーマクロ (Ctrl/Alt/GUI押下中は通常レイヤーのキーコードで動作)
+        lm_seoto_ctrl: lm_seoto_ctrl {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &to LAYER_MAC>
+                , <&macro_press &kp LCTRL>
+                , <&macro_pause_for_release>
+                , <&macro_release &kp LCTRL>
+                , <&macro_tap &to LAYER_SEOTO>;
+            label = "LAYER_MOD_SEOTO_CTRL";
+        };
+
+        lm_seoto_alt: lm_seoto_alt {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &to LAYER_MAC>
+                , <&macro_press &kp LEFT_ALT>
+                , <&macro_pause_for_release>
+                , <&macro_release &kp LEFT_ALT>
+                , <&macro_tap &to LAYER_SEOTO>;
+            label = "LAYER_MOD_SEOTO_ALT";
+        };
+
+        lm_seoto_gui: lm_seoto_gui {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &to LAYER_MAC>
+                , <&macro_press &kp LEFT_GUI>
+                , <&macro_pause_for_release>
+                , <&macro_release &kp LEFT_GUI>
+                , <&macro_tap &to LAYER_SEOTO>;
+            label = "LAYER_MOD_SEOTO_GUI";
+        };
+    };
+};
