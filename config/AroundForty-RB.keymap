@@ -128,7 +128,7 @@
             bindings = <
 &kp P             &kp Z         &kp H         &kp F                      &kp LEFT_ARROW                     &kp RIGHT_ARROW  &kp Q        &kp O          &kp W       &kp X
 &kp D             &kp S         &kp N         &kp T                      &kp G                              &kp L            &kp A        &kp I          &kp U       &kp E
-&mt LEFT_SHIFT B  &kp R         &kp M         &kp C                      &kp K        &kp LG(LS(NUMBER_4))  &kp Y            &kp COMMA    &kp J          &kp PERIOD  &mt RIGHT_SHIFT V
+&mt LEFT_SHIFT B  &kp R         &kp M         &kp C                      &kp K        &none  &kp Y            &kp COMMA    &kp J          &kp PERIOD  &mt RIGHT_SHIFT V
 &kp LCTRL         &kp LEFT_GUI  &kp LEFT_ALT  &lt LAYER_NUM LANGUAGE_2   &mt LEFT_SHIFT SPACE  &lt LAYER_MAC_FN LANGUAGE_1  &lt LAYER_MAC_FN ENTER  &tog_on LAYER_NUM  &lt LAYER_MAC_CMN BACKSPACE  &lt LAYER_SETTING HASH  &kp DELETE
             >;
         };
@@ -137,8 +137,8 @@
             bindings = <
 &kp P             &kp Z         &kp H         &kp F                      &kp LEFT_ARROW                     &kp RIGHT_ARROW  &kp Q        &kp O          &kp W       &kp X
 &kp D             &kp S         &kp N         &kp T                      &kp G                              &kp L            &kp A        &kp I          &kp U       &kp E
-&mt LEFT_SHIFT B  &kp R         &kp M         &kp C                      &kp K        &kp LG(LS(S))         &kp Y            &kp COMMA    &kp J          &kp PERIOD  &mt RIGHT_SHIFT V
-&kp LCTRL         &kp LEFT_ALT  &kp LEFT_GUI  &lt LAYER_NUM LANGUAGE_2   &mt LEFT_SHIFT SPACE  &lt LAYER_WIN_FN Z  &lt LAYER_WIN_FN ENTER  &tog_on LAYER_NUM  &lt LAYER_WIN_CMN LANGUAGE_1  &lt LAYER_SETTING HASH  &kp DELETE
+&mt LEFT_SHIFT B  &kp R         &kp M         &kp C                      &kp K        &none         &kp Y            &kp COMMA    &kp J          &kp PERIOD  &mt RIGHT_SHIFT V
+&kp LCTRL         &kp LEFT_ALT  &kp LEFT_GUI  &lt LAYER_NUM LANGUAGE_2   &mt LEFT_SHIFT SPACE  &lt LAYER_WIN_FN LANGUAGE_2  &lt LAYER_WIN_FN ENTER  &tog_on LAYER_NUM  &lt LAYER_WIN_CMN LANGUAGE_1  &lt LAYER_SETTING HASH  &kp DELETE
             >;
         };
 
@@ -146,7 +146,7 @@
             bindings = <
 &kp P           &kp Z         &kp H         &kp F                     &kp LEFT_ARROW                         &kp RIGHT_ARROW  &seoto_yo  &kp O                     &kp W                  &seoto_ya
 &kp D           &kp S         &kp N         &kp T                     &kp G                                  &kp L            &kp A      &kp I                     &kp U                  &kp E
-&mt LEFT_SHIFT B &kp R         &kp M         &kp K                     &kp C            &kp LG(LS(NUMBER_4))  &kp Y            &kp COMMA  &seoto_yu                 &kp PERIOD             &mt RIGHT_SHIFT V
+&mt LEFT_SHIFT B &kp R         &kp M         &kp K                     &kp C            &none  &kp Y            &kp COMMA  &seoto_yu                 &kp PERIOD             &mt RIGHT_SHIFT V
 &lm_seoto_ctrl  &lm_seoto_alt &lm_seoto_gui &lt LAYER_NUM LANGUAGE_2  &mt LEFT_SHIFT SPACE  &lt LAYER_WIN_FN LANGUAGE_1  &lt LAYER_WIN_FN ENTER  &tog_on LAYER_NUM  &lt LAYER_WIN_CMN BACKSPACE  &lt LAYER_SETTING HASH  &kp DELETE
             >;
         };
