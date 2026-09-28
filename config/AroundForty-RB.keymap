@@ -11,8 +11,7 @@
 #define LAYER_WIN_CMN    7
 #define LAYER_NUM        8
 #define LAYER_SETTING    9
-#define LAYER_AUTOMOUSE  10
-#define LAYER_SCROLL     11
+#define LAYER_SCROLL     10
 
 #include <behaviors/rgbled_widget.dtsi>  // needed to use the behaviors
 #include <behaviors.dtsi>
@@ -112,6 +111,36 @@
             tapping-term-ms = <200>;
         };
 
+        bspc_del: backspace_delete {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp BACKSPACE>, <&kp DELETE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        dot_comma: period_comma {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp PERIOD>, <&kp COMMA>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        seoto_eisu_lt: seoto_eisu_layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&seoto_off>;
+        };
+
+        seoto_kana_lt: seoto_kana_layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&seoto_on>;
+        };
+
         scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
@@ -124,39 +153,39 @@
     keymap {
         compatible = "zmk,keymap";
 
-        Mac-Default_Layer { // 0: せおと配列 (英数・Mac)
+        Mac-Default_Layer { // 0: せおと系英字 (Mac)
             bindings = <
-&kp P             &kp Z         &kp H         &kp F                      &kp LEFT_ARROW                     &kp RIGHT_ARROW  &kp Q        &kp O          &kp W       &kp X
+&kp P             &kp Z         &kp H         &kp F                      &kp TAB                            &kp J            &kp Q        &kp O          &kp W       &kp X
 &kp D             &kp S         &kp N         &kp T                      &kp G                              &kp L            &kp A        &kp I          &kp U       &kp E
-&mt LEFT_SHIFT B  &kp R         &kp M         &kp C                      &kp K        &none  &kp Y            &kp COMMA    &kp J          &kp PERIOD  &mt RIGHT_SHIFT V
-&kp LCTRL         &kp LEFT_GUI  &kp LEFT_ALT  &lt LAYER_NUM LANGUAGE_2   &mt LEFT_SHIFT SPACE  &lt LAYER_MAC_FN LANGUAGE_1  &lt LAYER_MAC_FN ENTER  &tog_on LAYER_NUM  &lt LAYER_MAC_CMN BACKSPACE  &lt LAYER_SETTING HASH  &kp DELETE
+&mt LEFT_SHIFT B  &kp R         &kp M         &kp C                      &kp K        &none  &kp Y            &mkp MB1     &lt LAYER_SCROLL ENTER  &dot_comma  &mt RIGHT_SHIFT V
+&kp LCTRL         &kp LEFT_GUI  &kp LEFT_ALT  &lt LAYER_NUM LANGUAGE_2   &mt LEFT_SHIFT SPACE  &lt LAYER_MAC_FN LANGUAGE_2  &bspc_del  &tog_on LAYER_NUM  &seoto_kana_lt LAYER_NUM 0  &lt LAYER_SETTING HASH  &kp DELETE
             >;
         };
 
-        Win-Default_Layer {  // 1: せおと配列 (英数・Win)
+        Win-Default_Layer { // 1: せおと系英字 (Windows)
             bindings = <
-&kp P             &kp Z         &kp H         &kp F                      &kp LEFT_ARROW                     &kp RIGHT_ARROW  &kp Q        &kp O          &kp W       &kp X
+&kp P             &kp Z         &kp H         &kp F                      &kp TAB                            &kp J            &kp Q        &kp O          &kp W       &kp X
 &kp D             &kp S         &kp N         &kp T                      &kp G                              &kp L            &kp A        &kp I          &kp U       &kp E
-&mt LEFT_SHIFT B  &kp R         &kp M         &kp C                      &kp K        &none         &kp Y            &kp COMMA    &kp J          &kp PERIOD  &mt RIGHT_SHIFT V
-&kp LCTRL         &kp LEFT_ALT  &kp LEFT_GUI  &lt LAYER_NUM LANGUAGE_2   &mt LEFT_SHIFT SPACE  &lt LAYER_WIN_FN LANGUAGE_2  &lt LAYER_WIN_FN ENTER  &tog_on LAYER_NUM  &lt LAYER_WIN_CMN LANGUAGE_1  &lt LAYER_SETTING HASH  &kp DELETE
+&mt LEFT_SHIFT B  &kp R         &kp M         &kp C                      &kp K        &none  &kp Y            &mkp MB1     &lt LAYER_SCROLL ENTER  &dot_comma  &mt RIGHT_SHIFT V
+&kp LCTRL         &kp LEFT_ALT  &kp LEFT_GUI  &lt LAYER_NUM LANGUAGE_2   &mt LEFT_SHIFT SPACE  &lt LAYER_WIN_FN LANGUAGE_2  &bspc_del  &tog_on LAYER_NUM  &seoto_kana_lt LAYER_NUM 0  &lt LAYER_SETTING HASH  &kp DELETE
             >;
         };
 
         Seoto_Layer { // 2: せおと配列 (かな)
             bindings = <
-&kp P           &kp Z         &kp H         &kp F                     &kp LEFT_ARROW                         &kp RIGHT_ARROW  &seoto_yo  &kp O                     &kp W                  &seoto_ya
-&kp D           &kp S         &kp N         &kp T                     &kp G                                  &kp L            &kp A      &kp I                     &kp U                  &kp E
-&mt LEFT_SHIFT B &kp R         &kp M         &kp K                     &kp C            &none  &kp Y            &kp COMMA  &seoto_yu                 &kp PERIOD             &mt RIGHT_SHIFT V
-&lm_seoto_ctrl  &lm_seoto_alt &lm_seoto_gui &lt LAYER_NUM LANGUAGE_2  &mt LEFT_SHIFT SPACE  &lt LAYER_WIN_FN LANGUAGE_1  &lt LAYER_WIN_FN ENTER  &tog_on LAYER_NUM  &lt LAYER_WIN_CMN BACKSPACE  &lt LAYER_SETTING HASH  &kp DELETE
+&kp P           &kp Z         &kp H         &kp F                     &kp TAB                                &none      &seoto_yo  &kp O      &kp W       &seoto_ya
+&kp D           &kp S         &kp N         &kp T                     &kp G                                  &seoto_yu  &kp A      &kp I      &kp U       &kp E
+&mt LEFT_SHIFT B &kp R        &kp M         &kp K                     &kp C            &none              &kp Y      &mkp MB1   &lt LAYER_SCROLL ENTER  &dot_comma  &mt RIGHT_SHIFT V
+&lm_seoto_ctrl  &lm_seoto_alt &lm_seoto_gui &lt LAYER_NUM LANGUAGE_2  &mt LEFT_SHIFT SPACE  &seoto_eisu_lt LAYER_WIN_FN 0  &bspc_del  &tog_on LAYER_NUM  &lt LAYER_NUM LANGUAGE_1  &lt LAYER_SETTING HASH  &kp DELETE
             >;
         };
 
-        Naginata_Layer { // 3
+        Naginata_Layer { // 3: 薙刀式（切替コンボは従来どおり）
             bindings = <
 &ng Q             &ng W         &ng E         &ng R             &ng T                                  &ng Y  &ng U     &ng I             &ng O       &ng P
 &ng A             &ng S         &ng D         &ng F             &ng G                                  &ng H  &ng J     &ng K             &ng L       &ng SEMI
-&ng Z             &ng X         &ng C         &ng V             &ng B      &trans                      &ng N  &mkp MB1  &lt_ng LAYER_WIN_FN ENTER  &ng PERIOD  &ng SLASH
-&lm_win_ctrl      &lm_win_alt   &lm_win_gui   &lt LAYER_NUM LANGUAGE_2  &ng SPACE  &lt LAYER_WIN_FN BACKSPACE  &ng M  &tog_on LAYER_NUM     &lt LAYER_WIN_CMN LANGUAGE_1  &lt LAYER_SETTING HASH  &kp DELETE
+&ng Z             &ng X         &ng C         &ng V             &ng B      &trans                      &ng N  &mkp MB1  &lt LAYER_SCROLL ENTER  &ng PERIOD  &ng SLASH
+&lm_win_ctrl      &lm_win_alt   &lm_win_gui   &lt LAYER_NUM LANGUAGE_2  &ng SPACE  &lt LAYER_WIN_FN LANGUAGE_2  &bspc_del  &tog_on LAYER_NUM  &lt LAYER_NUM LANGUAGE_1  &lt LAYER_SETTING HASH  &kp DELETE
             >;
         };
 
