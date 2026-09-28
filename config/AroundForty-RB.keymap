@@ -5,13 +5,10 @@
 #define LAYER_WIN        1
 #define LAYER_SEOTO      2
 #define LAYER_NAGINATA   3
-#define LAYER_MAC_FN     4
-#define LAYER_WIN_FN     5
-#define LAYER_MAC_CMN    6
-#define LAYER_WIN_CMN    7
-#define LAYER_NUM        8
-#define LAYER_SETTING    9
-#define LAYER_SCROLL     10
+#define LAYER_PUNCT      4
+#define LAYER_NUM        5
+#define LAYER_SETTING    6
+#define LAYER_SCROLL     7
 
 #include <behaviors/rgbled_widget.dtsi>  // needed to use the behaviors
 #include <behaviors.dtsi>
@@ -158,7 +155,7 @@
 &kp P             &kp Z         &kp H         &kp F                      &kp TAB                            &kp J            &kp Q        &kp O          &kp W       &kp X
 &kp D             &kp S         &kp N         &kp T                      &kp G                              &kp L            &kp A        &kp I          &kp U       &kp E
 &mt LEFT_SHIFT B  &kp R         &kp M         &kp C                      &kp K        &none  &kp Y            &mkp MB1     &lt LAYER_SCROLL ENTER  &dot_comma  &mt RIGHT_SHIFT V
-&kp LCTRL         &kp LEFT_GUI  &kp LEFT_ALT  &lt LAYER_NUM LANGUAGE_2   &mt LEFT_SHIFT SPACE  &lt LAYER_MAC_FN LANGUAGE_2  &bspc_del  &tog_on LAYER_NUM  &seoto_kana_lt LAYER_NUM 0  &lt LAYER_SETTING HASH  &kp DELETE
+&kp LCTRL         &kp LEFT_GUI  &kp LEFT_ALT  &lt LAYER_NUM LANGUAGE_2   &mt LEFT_SHIFT SPACE  &lt LAYER_PUNCT LANGUAGE_2  &bspc_del  &tog_on LAYER_NUM  &seoto_kana_lt LAYER_NUM 0  &lt LAYER_SETTING HASH  &kp DELETE
             >;
         };
 
@@ -167,7 +164,7 @@
 &kp P             &kp Z         &kp H         &kp F                      &kp TAB                            &kp J            &kp Q        &kp O          &kp W       &kp X
 &kp D             &kp S         &kp N         &kp T                      &kp G                              &kp L            &kp A        &kp I          &kp U       &kp E
 &mt LEFT_SHIFT B  &kp R         &kp M         &kp C                      &kp K        &none  &kp Y            &mkp MB1     &lt LAYER_SCROLL ENTER  &dot_comma  &mt RIGHT_SHIFT V
-&kp LCTRL         &kp LEFT_ALT  &kp LEFT_GUI  &lt LAYER_NUM LANGUAGE_2   &mt LEFT_SHIFT SPACE  &lt LAYER_WIN_FN LANGUAGE_2  &bspc_del  &tog_on LAYER_NUM  &seoto_kana_lt LAYER_NUM 0  &lt LAYER_SETTING HASH  &kp DELETE
+&kp LCTRL         &kp LEFT_ALT  &kp LEFT_GUI  &lt LAYER_NUM LANGUAGE_2   &mt LEFT_SHIFT SPACE  &lt LAYER_PUNCT LANGUAGE_2  &bspc_del  &tog_on LAYER_NUM  &seoto_kana_lt LAYER_NUM 0  &lt LAYER_SETTING HASH  &kp DELETE
             >;
         };
 
@@ -176,7 +173,7 @@
 &kp P           &kp Z         &kp H         &kp F                     &kp TAB                                &none      &seoto_yo  &kp O      &kp W       &seoto_ya
 &kp D           &kp S         &kp N         &kp T                     &kp G                                  &seoto_yu  &kp A      &kp I      &kp U       &kp E
 &mt LEFT_SHIFT B &kp R        &kp M         &kp K                     &kp C            &none              &kp Y      &mkp MB1   &lt LAYER_SCROLL ENTER  &dot_comma  &mt RIGHT_SHIFT V
-&lm_seoto_ctrl  &lm_seoto_alt &lm_seoto_gui &lt LAYER_NUM LANGUAGE_2  &mt LEFT_SHIFT SPACE  &seoto_eisu_lt LAYER_WIN_FN 0  &bspc_del  &tog_on LAYER_NUM  &lt LAYER_NUM LANGUAGE_1  &lt LAYER_SETTING HASH  &kp DELETE
+&lm_seoto_ctrl  &lm_seoto_alt &lm_seoto_gui &lt LAYER_NUM LANGUAGE_2  &mt LEFT_SHIFT SPACE  &seoto_eisu_lt LAYER_PUNCT 0  &bspc_del  &tog_on LAYER_NUM  &lt LAYER_NUM LANGUAGE_1  &lt LAYER_SETTING HASH  &kp DELETE
             >;
         };
 
@@ -185,14 +182,14 @@
 &ng Q             &ng W         &ng E         &ng R             &ng T                                  &ng Y  &ng U     &ng I             &ng O       &ng P
 &ng A             &ng S         &ng D         &ng F             &ng G                                  &ng H  &ng J     &ng K             &ng L       &ng SEMI
 &ng Z             &ng X         &ng C         &ng V             &ng B      &trans                      &ng N  &mkp MB1  &lt LAYER_SCROLL ENTER  &ng PERIOD  &ng SLASH
-&lm_win_ctrl      &lm_win_alt   &lm_win_gui   &lt LAYER_NUM LANGUAGE_2  &ng SPACE  &lt LAYER_WIN_FN LANGUAGE_2  &bspc_del  &tog_on LAYER_NUM  &lt LAYER_NUM LANGUAGE_1  &lt LAYER_SETTING HASH  &kp DELETE
+&lm_win_ctrl      &lm_win_alt   &lm_win_gui   &lt LAYER_NUM LANGUAGE_2  &ng SPACE  &lt LAYER_PUNCT LANGUAGE_2  &bspc_del  &tog_on LAYER_NUM  &lt LAYER_NUM LANGUAGE_1  &lt LAYER_SETTING HASH  &kp DELETE
             >;
         };
 
-        Mac-Function_Layer { // 4: brackets / punctuation, Mac shortcuts on left
+        Punctuation_Layer { // 4: common JIS brackets / punctuation
             bindings = <
-&kp LG(A)  &kp LG(X)     &kp LG(C)    &kp LG(V)  &kp LG(F)          &none                 &none                  &kp JP_CARET       &kp PERCENT       &kp DOLLAR
-&kp TAB    &kp LEFT_GUI  &kp LS(TAB)  &mkp MB1   &mkp MB2           &kp JP_LPAREN          &kp JP_RPAREN          &kp JP_AT          &kp JP_AMPERSAND  &kp JP_DQUOTE
+&trans     &trans        &trans       &trans     &trans            &none                 &none                  &kp JP_CARET       &kp PERCENT       &kp DOLLAR
+&kp TAB    &trans        &kp LS(TAB)  &mkp MB1   &mkp MB2           &kp JP_LPAREN          &kp JP_RPAREN          &kp JP_AT          &kp JP_AMPERSAND  &kp JP_DQUOTE
 &trans     &trans        &trans       &trans     &mkp MB3   &trans  &kp JP_LBRACKET        &kp LESS_THAN          &kp GREATER_THAN    &kp QUESTION      &kp JP_QUOTE
 &trans     &trans        &trans       &trans     &trans     &trans  &kp ENTER              &kp JP_COLON           &bspc_del           &kp JP_YEN        &kp HASH
             >;
@@ -200,40 +197,7 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        Win-Function_Layer { // 5: same brackets / punctuation, Windows shortcuts on left
-            bindings = <
-&kp LC(A)  &kp LC(X)     &kp LC(C)    &kp LC(V)  &kp LC(F)          &none                 &none                  &kp JP_CARET       &kp PERCENT       &kp DOLLAR
-&kp TAB    &kp LEFT_ALT  &kp LS(TAB)  &mkp MB1   &mkp MB2           &kp JP_LPAREN          &kp JP_RPAREN          &kp JP_AT          &kp JP_AMPERSAND  &kp JP_DQUOTE
-&trans     &trans        &trans       &trans     &mkp MB3   &trans  &kp JP_LBRACKET        &kp LESS_THAN          &kp GREATER_THAN    &kp QUESTION      &kp JP_QUOTE
-&trans     &trans        &trans       &trans     &trans     &trans  &kp ENTER              &kp JP_COLON           &bspc_del           &kp JP_YEN        &kp HASH
-            >;
-
-            sensor-bindings = <&scroll_up_down>;
-        };
-
-        Mac-Common_Layer { // 6
-            bindings = <
-&kp ESCAPE      &trans        &trans       &kp LG(UP_ARROW)    &trans                       &kp LG(W)        &kp LG(LEFT_ARROW)  &mkp MB3        &kp LG(RIGHT_ARROW)  &kp HOME
-&kp TAB         &kp LEFT_GUI  &kp LS(TAB)  &kp LG(LEFT_ARROW)  &kp LG(RIGHT_ARROW)          &kp LG(TAB)      &mkp MB1            &kp UP_ARROW    &mkp MB2             &kp PAGE_UP
-&kp LEFT_SHIFT  &trans        &trans       &kp LG(DOWN_ARROW)  &trans               &trans  &kp LG(LS(TAB))  &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW      &kp PAGE_DOWN
-&kp LCTRL       &trans        &trans       &trans              &trans               &trans  &trans           &kp LG(T)           &trans          &trans               &kp END
-            >;
-
-            sensor-bindings = <&scroll_up_down>;
-        };
-
-        Win-Common_Layer { // 7
-            bindings = <
-&kp JP_AT       &kp EXCLAMATION  &kp JP_DQUOTE     &kp LG(UP_ARROW)  &trans                       &kp JP_PIPE       &kp JP_EQUAL    &kp JP_TILDE       &kp JP_CARET     &kp PERCENT
-&kp HASH        &kp QUESTION     &kp JP_QUOTE      &kp SEMICOLON     &kp LG(RIGHT_ARROW)          &kp JP_AMPERSAND  &kp JP_PLUS     &kp MINUS          &kp JP_ASTERISK  &kp SLASH
-&kp LEFT_SHIFT  &trans           &kp JP_BACKQUOTE  &kp JP_COLON      &trans               &trans  &kp DOLLAR        &kp LEFT_ARROW  &kp JP_UNDERSCORE  &kp JP_YEN       &kp BACKSLASH
-&kp LCTRL       &trans           &trans            &trans            &trans               &trans  &trans            &kp LC(T)       &trans             &trans           &kp END
-            >;
-
-            sensor-bindings = <&scroll_up_down>;
-        };
-
-        Num_Layer { // 8: numbers / operators, common to Mac and Windows JIS
+        Num_Layer { // 5: numbers / operators, common to Mac and Windows JIS
             bindings = <
 &kp F1   &kp F2          &kp UP_ARROW    &kp F4           &kp F5           &kp JP_PLUS      &kp MINUS     &kp N7     &kp N8     &kp N9
 &kp F6   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp F10          &kp JP_EQUAL     &kp JP_COLON  &kp N4     &kp N5     &kp N6
@@ -242,7 +206,7 @@
             >;
         };
 
-        Setting_Layer { // 9
+        Setting_Layer { // 6
             bindings = <
 &studio_unlock     &trans  &trans  &trans  &trans                 &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
 &to LAYER_SEOTO    &trans  &trans  &trans  &trans                 &trans        &trans          &trans        &trans        &trans
@@ -253,7 +217,7 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        Scroll_Layer { // 10: Enter長押し中のみトラックボールをスクロール化
+        Scroll_Layer { // 7: Enter長押し中のみトラックボールをスクロール化
             bindings = <
 &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
