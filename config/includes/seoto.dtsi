@@ -4,20 +4,36 @@
 #pragma once
 
 / {
+    behaviors {
+        tog_on: toggle_layer_on_only {
+            compatible = "zmk,behavior-toggle-layer";
+            #binding-cells = <1>;
+            display-name = "Toggle Layer On";
+            toggle-mode = "on";
+        };
+
+        tog_off: toggle_layer_off_only {
+            compatible = "zmk,behavior-toggle-layer";
+            #binding-cells = <1>;
+            display-name = "Toggle Layer Off";
+            toggle-mode = "off";
+        };
+    };
+
     macros {
-        // せおと配列 有効化 (かな入力モード + レイヤー切替)
+        // せおと配列 有効化 (かな入力モード + レイヤー切替: 下位レイヤーを保持したままSEOTOレイヤーを重ねる)
         seoto_on: seoto_on {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LANGUAGE_1 &to LAYER_SEOTO>;
+            bindings = <&macro_tap &kp LANGUAGE_1 &tog_on LAYER_SEOTO>;
             label = "SEOTO_ON";
         };
 
-        // せおと配列 解除 (英数モード + デフォルトレイヤーへ復帰)
+        // せおと配列 解除 (英数モード + SEOTOレイヤー解除で元のMac/Winレイヤーへ復帰)
         seoto_off: seoto_off {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LANGUAGE_2 &to LAYER_MAC>;
+            bindings = <&macro_tap &kp LANGUAGE_2 &tog_off LAYER_SEOTO>;
             label = "SEOTO_OFF";
         };
 
@@ -79,11 +95,11 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &to LAYER_MAC>
+                = <&macro_tap &tog_off LAYER_SEOTO>
                 , <&macro_press &kp LCTRL>
                 , <&macro_pause_for_release>
                 , <&macro_release &kp LCTRL>
-                , <&macro_tap &to LAYER_SEOTO>;
+                , <&macro_tap &tog_on LAYER_SEOTO>;
             label = "LAYER_MOD_SEOTO_CTRL";
         };
 
@@ -91,11 +107,11 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &to LAYER_MAC>
+                = <&macro_tap &tog_off LAYER_SEOTO>
                 , <&macro_press &kp LEFT_ALT>
                 , <&macro_pause_for_release>
                 , <&macro_release &kp LEFT_ALT>
-                , <&macro_tap &to LAYER_SEOTO>;
+                , <&macro_tap &tog_on LAYER_SEOTO>;
             label = "LAYER_MOD_SEOTO_ALT";
         };
 
@@ -103,11 +119,11 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &to LAYER_MAC>
+                = <&macro_tap &tog_off LAYER_SEOTO>
                 , <&macro_press &kp LEFT_GUI>
                 , <&macro_pause_for_release>
                 , <&macro_release &kp LEFT_GUI>
-                , <&macro_tap &to LAYER_SEOTO>;
+                , <&macro_tap &tog_on LAYER_SEOTO>;
             label = "LAYER_MOD_SEOTO_GUI";
         };
     };

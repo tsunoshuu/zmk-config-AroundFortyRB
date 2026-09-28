@@ -4,15 +4,15 @@
 /* レイヤー定義 */
 #define LAYER_MAC        0
 #define LAYER_WIN        1
-#define LAYER_NAGINATA   2
-#define LAYER_MAC_FN     3
-#define LAYER_WIN_FN     4
-#define LAYER_MAC_CMN    5
-#define LAYER_WIN_CMN    6
-#define LAYER_NUM        7
-#define LAYER_SETTING    8
-#define LAYER_AUTOMOUSE  9
-#define LAYER_SEOTO      10
+#define LAYER_SEOTO      2
+#define LAYER_NAGINATA   3
+#define LAYER_MAC_FN     4
+#define LAYER_WIN_FN     5
+#define LAYER_MAC_CMN    6
+#define LAYER_WIN_CMN    7
+#define LAYER_NUM        8
+#define LAYER_SETTING    9
+#define LAYER_AUTOMOUSE  10
 #define LAYER_SCROLL     11
 
 #include <behaviors/rgbled_widget.dtsi>  // needed to use the behaviors
@@ -20,6 +20,8 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <input/processors.dtsi>
+
 
 /* モジュール化された設定・ヘッダー群 */
 #include "includes/japanese.dtsi"
@@ -128,7 +130,7 @@
 &kp P             &kp Z         &kp H         &kp F                      &kp LEFT_ARROW                     &kp RIGHT_ARROW  &kp Q        &kp O          &kp W       &kp X
 &kp D             &kp S         &kp N         &kp T                      &kp G                              &kp L            &kp A        &kp I          &kp U       &kp E
 &mt LEFT_SHIFT B  &kp R         &kp M         &kp C                      &kp K        &kp LG(LS(NUMBER_4))  &kp Y            &kp COMMA    &kp J          &kp PERIOD  &mt RIGHT_SHIFT V
-&kp LCTRL         &kp LEFT_GUI  &kp LEFT_ALT  &mt LEFT_SHIFT LANGUAGE_1  &lt LAYER_NAGINATA SPACE  &lt LAYER_WIN_CMN LANGUAGE_2  &lt LAYER_WIN_FN ENTER  &kp AT_SIGN  &kp BACKSPACE  &lt LAYER_SETTING HASH  &kp DELETE
+&kp LCTRL         &kp LEFT_GUI  &kp LEFT_ALT  &lt LAYER_NUM LANGUAGE_2   &mt LEFT_SHIFT SPACE  &lt LAYER_MAC_FN LANGUAGE_1  &lt LAYER_MAC_FN ENTER  &to LAYER_NUM  &lt LAYER_MAC_CMN BACKSPACE  &lt LAYER_SETTING HASH  &kp DELETE
             >;
         };
 
@@ -141,7 +143,16 @@
             >;
         };
 
-        Naginata_Layer { // 2
+        Seoto_Layer { // 2: せおと配列 (かな)
+            bindings = <
+&kp P           &kp Z         &kp H         &kp F                     &kp LEFT_ARROW                         &kp RIGHT_ARROW  &seoto_yo  &kp O                     &kp W                  &seoto_ya
+&kp D           &kp S         &kp N         &kp T                     &kp G                                  &kp L            &kp A      &kp I                     &kp U                  &kp E
+&mt LEFT_SHIFT B &kp R         &kp M         &kp K                     &kp C            &kp LG(LS(NUMBER_4))  &kp Y            &kp COMMA  &seoto_yu                 &kp PERIOD             &mt RIGHT_SHIFT V
+&lm_seoto_ctrl  &lm_seoto_alt &lm_seoto_gui &lt LAYER_NUM LANGUAGE_2  &mt LEFT_SHIFT SPACE  &lt LAYER_WIN_FN LANGUAGE_1  &lt LAYER_WIN_FN ENTER  &to LAYER_NUM  &lt LAYER_WIN_CMN BACKSPACE  &lt LAYER_SETTING HASH  &kp DELETE
+            >;
+        };
+
+        Naginata_Layer { // 3
             bindings = <
 &ng Q             &ng W         &ng E         &ng R             &ng T                                  &ng Y  &ng U     &ng I             &ng O       &ng P
 &ng A             &ng S         &ng D         &ng F             &ng G                                  &ng H  &ng J     &ng K             &ng L       &ng SEMI
@@ -150,7 +161,7 @@
             >;
         };
 
-        Mac-Function_Layer { // 3
+        Mac-Function_Layer { // 4
             bindings = <
 &kp LG(A)  &kp LG(X)     &kp LG(C)    &kp LG(V)  &kp LG(F)          &kp LESS_THAN         &kp GREATER_THAN       &kp CARET        &kp PERCENT    &kp DOLLAR
 &kp TAB    &kp LEFT_GUI  &kp LS(TAB)  &mkp MB1   &mkp MB2           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp AT_SIGN      &kp AMPERSAND  &kp DOUBLE_QUOTES
@@ -161,7 +172,7 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        Win-Function_Layer { // 4
+        Win-Function_Layer { // 5
             bindings = <
 &kp F1   &kp F2   &kp F3              &kp F4      &kp F5            &kp LESS_THAN         &kp JP_LBRACKET  &kp JP_RBRACKET   &kp PERCENT    &kp DOLLAR
 &kp F6   &kp F7   &kp F8              &kp F9      &kp F10           &kp LEFT_PARENTHESIS  &kp JP_LPAREN    &kp JP_RPAREN     &kp JP_LBRACE  &kp JP_RBRACE
@@ -172,7 +183,7 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        Mac-Common_Layer { // 5
+        Mac-Common_Layer { // 6
             bindings = <
 &kp ESCAPE      &trans        &trans       &kp LG(UP_ARROW)    &trans                       &kp LG(W)        &kp LG(LEFT_ARROW)  &mkp MB3        &kp LG(RIGHT_ARROW)  &kp HOME
 &kp TAB         &kp LEFT_GUI  &kp LS(TAB)  &kp LG(LEFT_ARROW)  &kp LG(RIGHT_ARROW)          &kp LG(TAB)      &mkp MB1            &kp UP_ARROW    &mkp MB2             &kp PAGE_UP
@@ -183,7 +194,7 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        Win-Common_Layer { // 6
+        Win-Common_Layer { // 7
             bindings = <
 &kp JP_AT       &kp EXCLAMATION  &kp JP_DQUOTE     &kp LG(UP_ARROW)  &trans                       &kp JP_PIPE       &kp JP_EQUAL    &kp JP_TILDE       &kp JP_CARET     &kp PERCENT
 &kp HASH        &kp QUESTION     &kp JP_QUOTE      &kp SEMICOLON     &kp LG(RIGHT_ARROW)          &kp JP_AMPERSAND  &kp JP_PLUS     &kp MINUS          &kp JP_ASTERISK  &kp SLASH
@@ -194,7 +205,7 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        Num_Layer { // 7
+        Num_Layer { // 8
             bindings = <
 &kp F1   &kp F2          &kp UP_ARROW    &kp F4           &kp F5           &kp N1     &kp N2    &kp N3           &kp N4         &kp N5
 &kp F6   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp F10          &kp N6     &kp N7    &kp N8           &kp N9         &kp N0
@@ -203,7 +214,7 @@
             >;
         };
 
-        Setting_Layer { // 8
+        Setting_Layer { // 9
             bindings = <
 &studio_unlock     &trans  &trans  &trans  &trans                 &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
 &to LAYER_SEOTO    &trans  &trans  &trans  &trans                 &trans        &trans          &trans        &trans        &trans
@@ -214,21 +225,12 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        AutoMouse_Layer { // 9: オートマウスレイヤー
+        AutoMouse_Layer { // 10: オートマウスレイヤー
             bindings = <
 &trans  &trans    &trans    &trans    &trans          &trans  &trans    &trans            &trans    &trans
 &trans  &mkp MB2  &mkp MB3  &mkp MB1  &trans          &trans  &mkp MB1  &mkp MB3          &mkp MB2  &trans
-&trans  &trans    &mo LAYER_SCROLL &trans &trans &trans &trans &trans   &mo LAYER_SCROLL  &trans    &trans
+&trans  &kp LC(LEFT_ARROW)  &mo LAYER_SCROLL  &kp LC(RIGHT_ARROW)  &trans  &trans  &trans  &kp LC(LEFT_ARROW)  &mo LAYER_SCROLL  &kp LC(RIGHT_ARROW)  &trans
 &trans  &trans    &trans    &trans    &trans  &trans  &trans  &trans    &trans            &trans    &trans
-            >;
-        };
-
-        Seoto_Layer { // 10: せおと配列 (かな)
-            bindings = <
-&kp P           &kp Z         &kp H         &kp F                     &kp LEFT_ARROW                         &kp RIGHT_ARROW  &seoto_yo  &kp O                     &kp W                  &seoto_ya
-&kp D           &kp S         &kp N         &kp T                     &kp G                                  &kp L            &kp A      &kp I                     &kp U                  &kp E
-&mt LEFT_SHIFT B &kp R         &kp M         &kp K                     &kp C            &kp LG(LS(NUMBER_4))  &kp Y            &kp COMMA  &seoto_yu                 &kp PERIOD             &mt RIGHT_SHIFT V
-&lm_seoto_ctrl  &lm_seoto_alt &lm_seoto_gui &lt LAYER_NUM LANGUAGE_2  &mt LEFT_SHIFT SPACE  &lt LAYER_WIN_FN LANGUAGE_1  &lt LAYER_WIN_FN ENTER  &to LAYER_NUM  &lt LAYER_WIN_CMN BACKSPACE  &lt LAYER_SETTING HASH  &kp DELETE
             >;
         };
 
