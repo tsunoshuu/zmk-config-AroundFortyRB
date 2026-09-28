@@ -17,32 +17,14 @@
             ;
 };
 
-&zip_temp_layer {
-    require-prior-idle-ms = <0>;
-    excluded-positions = <
-        11 // 左手 MB2 (S)
-        12 // 左手 MB3 (N)
-        13 // 左手 MB1 (T)
-        16 // 右手 MB1 (A)
-        17 // 右手 MB3 (I)
-        18 // 右手 MB2 (U)
-        21 23 // 左手 デスクトップ切り替え
-        22 // 左手 スクロール (M)
-        27 29 // 右手 デスクトップ切り替え
-        28 // 右手 スクロール (J)
-        31 32 33 34 35 36 37 38 39 40 41 // 最下段・親指キー
-    >;
-};
-
 / {
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&zip_temp_layer 10 1500>;
-
         scroller {
-            layers = <11>;
-            input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_scroll_scaler 1 16>;
+            layers = <7>;
+            /* Preserve fractional movement; 8 sensor counts per wheel step. */
+            input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_scroll_scaler 1 8>;
         };
     };
 };
@@ -86,12 +68,11 @@
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
-        motion-threshold = <1>;
-        inertial-scroll;
-        inertial-scroll-layers = <11>;
-        inertial-scroll-gain-pct = <120>;
-        inertial-scroll-decay-pct = <97>;
-        inertial-scroll-max-velocity = <32>;
+        /* Do not discard slow, single-count movement before accumulation. */
+        motion-threshold = <0>;
+        /* No synthetic inertia: stop sending motion when the ball stops.
+         * Retain direction-confirmation filtering for isolated sensor bounce.
+         */
         low-speed-stabilizer;
         force-awake;
     };
