@@ -69,7 +69,7 @@
         y-input-code = <INPUT_REL_Y>;
         motion-threshold = <1>;
         inertial-scroll;
-        inertial-scroll-layers = <11>;
+        inertial-scroll-layers = <7>;
         inertial-scroll-gain-pct = <120>;
         inertial-scroll-decay-pct = <97>;
         inertial-scroll-max-velocity = <32>;
