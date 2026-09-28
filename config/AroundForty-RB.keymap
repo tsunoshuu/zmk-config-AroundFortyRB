@@ -1,5 +1,4 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
-#define MOUSE 6
 
 /* レイヤー定義 */
 #define LAYER_MAC        0
@@ -130,7 +129,7 @@
 &kp P             &kp Z         &kp H         &kp F                      &kp LEFT_ARROW                     &kp RIGHT_ARROW  &kp Q        &kp O          &kp W       &kp X
 &kp D             &kp S         &kp N         &kp T                      &kp G                              &kp L            &kp A        &kp I          &kp U       &kp E
 &mt LEFT_SHIFT B  &kp R         &kp M         &kp C                      &kp K        &kp LG(LS(NUMBER_4))  &kp Y            &kp COMMA    &kp J          &kp PERIOD  &mt RIGHT_SHIFT V
-&kp LCTRL         &kp LEFT_GUI  &kp LEFT_ALT  &lt LAYER_NUM LANGUAGE_2   &mt LEFT_SHIFT SPACE  &lt LAYER_MAC_FN LANGUAGE_1  &lt LAYER_MAC_FN ENTER  &to LAYER_NUM  &lt LAYER_MAC_CMN BACKSPACE  &lt LAYER_SETTING HASH  &kp DELETE
+&kp LCTRL         &kp LEFT_GUI  &kp LEFT_ALT  &lt LAYER_NUM LANGUAGE_2   &mt LEFT_SHIFT SPACE  &lt LAYER_MAC_FN LANGUAGE_1  &lt LAYER_MAC_FN ENTER  &tog_on LAYER_NUM  &lt LAYER_MAC_CMN BACKSPACE  &lt LAYER_SETTING HASH  &kp DELETE
             >;
         };
 
@@ -139,7 +138,7 @@
 &kp P             &kp Z         &kp H         &kp F                      &kp LEFT_ARROW                     &kp RIGHT_ARROW  &kp Q        &kp O          &kp W       &kp X
 &kp D             &kp S         &kp N         &kp T                      &kp G                              &kp L            &kp A        &kp I          &kp U       &kp E
 &mt LEFT_SHIFT B  &kp R         &kp M         &kp C                      &kp K        &kp LG(LS(S))         &kp Y            &kp COMMA    &kp J          &kp PERIOD  &mt RIGHT_SHIFT V
-&kp LCTRL         &kp LEFT_ALT  &kp LEFT_GUI  &lt LAYER_NUM LANGUAGE_2   &mt LEFT_SHIFT SPACE  &lt LAYER_WIN_FN Z  &lt LAYER_WIN_FN ENTER  &to LAYER_NUM  &lt LAYER_WIN_CMN LANGUAGE_1  &lt LAYER_SETTING HASH  &kp DELETE
+&kp LCTRL         &kp LEFT_ALT  &kp LEFT_GUI  &lt LAYER_NUM LANGUAGE_2   &mt LEFT_SHIFT SPACE  &lt LAYER_WIN_FN Z  &lt LAYER_WIN_FN ENTER  &tog_on LAYER_NUM  &lt LAYER_WIN_CMN LANGUAGE_1  &lt LAYER_SETTING HASH  &kp DELETE
             >;
         };
 
@@ -148,7 +147,7 @@
 &kp P           &kp Z         &kp H         &kp F                     &kp LEFT_ARROW                         &kp RIGHT_ARROW  &seoto_yo  &kp O                     &kp W                  &seoto_ya
 &kp D           &kp S         &kp N         &kp T                     &kp G                                  &kp L            &kp A      &kp I                     &kp U                  &kp E
 &mt LEFT_SHIFT B &kp R         &kp M         &kp K                     &kp C            &kp LG(LS(NUMBER_4))  &kp Y            &kp COMMA  &seoto_yu                 &kp PERIOD             &mt RIGHT_SHIFT V
-&lm_seoto_ctrl  &lm_seoto_alt &lm_seoto_gui &lt LAYER_NUM LANGUAGE_2  &mt LEFT_SHIFT SPACE  &lt LAYER_WIN_FN LANGUAGE_1  &lt LAYER_WIN_FN ENTER  &to LAYER_NUM  &lt LAYER_WIN_CMN BACKSPACE  &lt LAYER_SETTING HASH  &kp DELETE
+&lm_seoto_ctrl  &lm_seoto_alt &lm_seoto_gui &lt LAYER_NUM LANGUAGE_2  &mt LEFT_SHIFT SPACE  &lt LAYER_WIN_FN LANGUAGE_1  &lt LAYER_WIN_FN ENTER  &tog_on LAYER_NUM  &lt LAYER_WIN_CMN BACKSPACE  &lt LAYER_SETTING HASH  &kp DELETE
             >;
         };
 
@@ -157,7 +156,7 @@
 &ng Q             &ng W         &ng E         &ng R             &ng T                                  &ng Y  &ng U     &ng I             &ng O       &ng P
 &ng A             &ng S         &ng D         &ng F             &ng G                                  &ng H  &ng J     &ng K             &ng L       &ng SEMI
 &ng Z             &ng X         &ng C         &ng V             &ng B      &trans                      &ng N  &mkp MB1  &lt_ng LAYER_WIN_FN ENTER  &ng PERIOD  &ng SLASH
-&lm_win_ctrl      &lm_win_alt   &lm_win_gui   &lt LAYER_NUM LANGUAGE_2  &ng SPACE  &lt LAYER_WIN_FN BACKSPACE  &ng M  &to LAYER_NUM     &lt LAYER_WIN_CMN LANGUAGE_1  &lt LAYER_SETTING HASH  &kp DELETE
+&lm_win_ctrl      &lm_win_alt   &lm_win_gui   &lt LAYER_NUM LANGUAGE_2  &ng SPACE  &lt LAYER_WIN_FN BACKSPACE  &ng M  &tog_on LAYER_NUM     &lt LAYER_WIN_CMN LANGUAGE_1  &lt LAYER_SETTING HASH  &kp DELETE
             >;
         };
 
@@ -205,12 +204,12 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        Num_Layer { // 8
+        Num_Layer { // 8: keep the underlying input/OS layer when pinned
             bindings = <
 &kp F1   &kp F2          &kp UP_ARROW    &kp F4           &kp F5           &kp N1     &kp N2    &kp N3           &kp N4         &kp N5
 &kp F6   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp F10          &kp N6     &kp N7    &kp N8           &kp N9         &kp N0
 &ng Z    &ng X            &trans          &trans           &trans   &trans  &kp MINUS  &mkp MB1  &lt LAYER_WIN_CMN ENTER  &kp COMMA      &kp PERIOD
-&trans   &trans          &trans          &trans           &trans   &trans  &kp SPACE  &to LAYER_WIN     &lt LAYER_WIN_CMN BACKSPACE  &kp AMPERSAND  &kp PERIOD
+&trans   &trans          &trans          &trans           &trans   &trans  &kp SPACE  &tog_off LAYER_NUM     &lt LAYER_WIN_CMN BACKSPACE  &kp AMPERSAND  &kp PERIOD
             >;
         };
 
