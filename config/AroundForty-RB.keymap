@@ -189,23 +189,23 @@
             >;
         };
 
-        Mac-Function_Layer { // 4
+        Mac-Function_Layer { // 4: brackets / punctuation, Mac shortcuts on left
             bindings = <
-&kp LG(A)  &kp LG(X)     &kp LG(C)    &kp LG(V)  &kp LG(F)          &kp LESS_THAN         &kp GREATER_THAN       &kp CARET        &kp PERCENT    &kp DOLLAR
-&kp TAB    &kp LEFT_GUI  &kp LS(TAB)  &mkp MB1   &mkp MB2           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp AT_SIGN      &kp AMPERSAND  &kp DOUBLE_QUOTES
-&trans     &trans        &trans       &trans     &mkp MB3   &trans  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp EXCLAMATION  &kp QUESTION   &kp SQT
-&trans     &trans        &trans       &trans     &trans     &trans  &kp ENTER             &kp COLON              &kp BACKSPACE    &kp BACKSLASH  &kp HASH
+&kp LG(A)  &kp LG(X)     &kp LG(C)    &kp LG(V)  &kp LG(F)          &none                 &none                  &kp JP_CARET       &kp PERCENT       &kp DOLLAR
+&kp TAB    &kp LEFT_GUI  &kp LS(TAB)  &mkp MB1   &mkp MB2           &kp JP_LPAREN          &kp JP_RPAREN          &kp JP_AT          &kp JP_AMPERSAND  &kp JP_DQUOTE
+&trans     &trans        &trans       &trans     &mkp MB3   &trans  &kp JP_LBRACKET        &kp LESS_THAN          &kp GREATER_THAN    &kp QUESTION      &kp JP_QUOTE
+&trans     &trans        &trans       &trans     &trans     &trans  &kp ENTER              &kp JP_COLON           &bspc_del           &kp JP_YEN        &kp HASH
             >;
 
             sensor-bindings = <&scroll_up_down>;
         };
 
-        Win-Function_Layer { // 5
+        Win-Function_Layer { // 5: same brackets / punctuation, Windows shortcuts on left
             bindings = <
-&kp F1   &kp F2   &kp F3              &kp F4      &kp F5            &kp LESS_THAN         &kp JP_LBRACKET  &kp JP_RBRACKET   &kp PERCENT    &kp DOLLAR
-&kp F6   &kp F7   &kp F8              &kp F9      &kp F10           &kp LEFT_PARENTHESIS  &kp JP_LPAREN    &kp JP_RPAREN     &kp JP_LBRACE  &kp JP_RBRACE
-&kp F11  &kp F12  &kp LC(LA(DELETE))  &kp ESCAPE  &mkp MB3  &trans  &kp LESS_THAN         &kp LESS_THAN    &kp GREATER_THAN  &kp QUESTION   &kp SQT
-&trans   &trans   &trans              &trans      &trans    &trans  &kp ENTER             &kp COLON        &kp BACKSPACE     &kp BACKSLASH  &kp HASH
+&kp LC(A)  &kp LC(X)     &kp LC(C)    &kp LC(V)  &kp LC(F)          &none                 &none                  &kp JP_CARET       &kp PERCENT       &kp DOLLAR
+&kp TAB    &kp LEFT_ALT  &kp LS(TAB)  &mkp MB1   &mkp MB2           &kp JP_LPAREN          &kp JP_RPAREN          &kp JP_AT          &kp JP_AMPERSAND  &kp JP_DQUOTE
+&trans     &trans        &trans       &trans     &mkp MB3   &trans  &kp JP_LBRACKET        &kp LESS_THAN          &kp GREATER_THAN    &kp QUESTION      &kp JP_QUOTE
+&trans     &trans        &trans       &trans     &trans     &trans  &kp ENTER              &kp JP_COLON           &bspc_del           &kp JP_YEN        &kp HASH
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -233,12 +233,12 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        Num_Layer { // 8: keep the underlying input/OS layer when pinned
+        Num_Layer { // 8: numbers / operators, common to Mac and Windows JIS
             bindings = <
-&kp F1   &kp F2          &kp UP_ARROW    &kp F4           &kp F5           &kp N1     &kp N2    &kp N3           &kp N4         &kp N5
-&kp F6   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp F10          &kp N6     &kp N7    &kp N8           &kp N9         &kp N0
-&ng Z    &ng X            &trans          &trans           &trans   &trans  &kp MINUS  &mkp MB1  &lt LAYER_WIN_CMN ENTER  &kp COMMA      &kp PERIOD
-&trans   &trans          &trans          &trans           &trans   &trans  &kp SPACE  &tog_off LAYER_NUM     &lt LAYER_WIN_CMN BACKSPACE  &kp AMPERSAND  &kp PERIOD
+&kp F1   &kp F2          &kp UP_ARROW    &kp F4           &kp F5           &kp JP_PLUS      &kp MINUS     &kp N7     &kp N8     &kp N9
+&kp F6   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp F10          &kp JP_EQUAL     &kp JP_COLON  &kp N4     &kp N5     &kp N6
+&trans   &trans          &trans          &trans           &trans   &trans  &kp JP_ASTERISK  &kp SLASH     &kp N1     &kp N2     &kp N3
+&trans   &trans          &trans          &trans           &trans   &trans  &kp ENTER        &kp DOLLAR    &bspc_del  &kp AMPERSAND  &kp N0
             >;
         };
 
@@ -253,16 +253,7 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        AutoMouse_Layer { // 10: オートマウスレイヤー
-            bindings = <
-&trans  &trans    &trans    &trans    &trans          &trans  &trans    &trans            &trans    &trans
-&trans  &mkp MB2  &mkp MB3  &mkp MB1  &trans          &trans  &mkp MB1  &mkp MB3          &mkp MB2  &trans
-&trans  &kp LC(LEFT_ARROW)  &mo LAYER_SCROLL  &kp LC(RIGHT_ARROW)  &trans  &trans  &trans  &kp LC(LEFT_ARROW)  &mo LAYER_SCROLL  &kp LC(RIGHT_ARROW)  &trans
-&trans  &trans    &trans    &trans    &trans  &trans  &trans  &trans    &trans            &trans    &trans
-            >;
-        };
-
-        Scroll_Layer { // 11: スクロールレイヤー (押下中トラックボールがスクロール動作)
+        Scroll_Layer { // 10: Enter長押し中のみトラックボールをスクロール化
             bindings = <
 &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
