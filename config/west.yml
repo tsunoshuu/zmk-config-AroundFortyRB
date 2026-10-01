@@ -6,8 +6,6 @@ manifest:
       url-base: https://github.com/razilyis
     - name: caksoylar
       url-base: https://github.com/caksoylar
-    - name: tsunoshuu
-      url-base: https://github.com/tsunoshuu
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -21,8 +19,5 @@ manifest:
       remote: caksoylar
       # This module's release must match ZMK, not its moving main branch.
       revision: v0.3
-    - name: zmk-naginata
-      remote: tsunoshuu
-      revision: original
   self:
     path: config

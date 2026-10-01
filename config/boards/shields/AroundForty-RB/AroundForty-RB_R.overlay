@@ -22,7 +22,7 @@
         compatible = "zmk,input-listener";
         device = <&trackball>;
         scroller {
-            layers = <7>;
+            layers = <5>; // LAYER_SCROLL in AroundForty-RB.keymap
             /* Preserve fractional movement; 8 sensor counts per wheel step. */
             input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_scroll_scaler 1 8>;
         };

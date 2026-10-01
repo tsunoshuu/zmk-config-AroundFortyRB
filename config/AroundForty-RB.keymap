@@ -3,13 +3,11 @@
 /* レイヤー定義 */
 #define LAYER_MAC        0
 #define LAYER_WIN        1
-#define LAYER_SEOTO      2
-#define LAYER_NAGINATA   3
-#define LAYER_NUM        4
-#define LAYER_PUNCT      5
-#define LAYER_SYMBOL     6
-#define LAYER_SCROLL     7
-#define LAYER_SETTING    8
+#define LAYER_NUM        2
+#define LAYER_PUNCT      3
+#define LAYER_SYMBOL     4
+#define LAYER_SCROLL     5
+#define LAYER_SETTING    6
 
 #include <behaviors/rgbled_widget.dtsi>  // needed to use the behaviors
 #include <behaviors.dtsi>
@@ -21,8 +19,6 @@
 
 /* モジュール化された設定・ヘッダー群 */
 #include "includes/japanese.dtsi"
-#include "includes/naginata.dtsi"
-#include "includes/seoto.dtsi"
 
 &mt {
     flavor = "tap-preferred";
@@ -37,57 +33,6 @@
         /* 共通コンボ定義 */
         #include "includes/base_combos.dtsi"
 
-        /* 薙刀式 切り替えコンボ */
-        combo_ng_on {
-            timeout-ms = <300>;
-            key-positions = <15 16>; // H, Jのキー位置
-            bindings = <&ng_on>;
-            layers = <LAYER_WIN>;
-        };
-
-        combo_ng_off {
-            timeout-ms = <300>;
-            key-positions = <13 14>; // F, Gのキー位置
-            bindings = <&ng_off>;
-            layers = <LAYER_WIN LAYER_NAGINATA>;
-        };
-
-        /* せおと配列 切り替えコンボ */
-        combo_seoto_on {
-            timeout-ms = <300>;
-            key-positions = <16 17>; // J, K位置でせおと配列ON
-            bindings = <&seoto_on>;
-            layers = <LAYER_MAC LAYER_WIN>;
-        };
-
-        combo_seoto_off {
-            timeout-ms = <300>;
-            key-positions = <13 14>; // T, G位置でせおと配列OFF (通常Mac層へ)
-            bindings = <&seoto_off>;
-            layers = <LAYER_SEOTO>;
-        };
-
-        /* せおと配列 補助入力コンボ (Seotoレイヤー限定) */
-        combo_seoto_nn {
-            timeout-ms = <50>;
-            key-positions = <17 18>; // I + U で「ん」(NN)
-            bindings = <&seoto_nn>;
-            layers = <LAYER_SEOTO>;
-        };
-
-        combo_seoto_ltu {
-            timeout-ms = <50>;
-            key-positions = <18 19>; // U + E で「っ」(LTU)
-            bindings = <&seoto_ltu>;
-            layers = <LAYER_SEOTO>;
-        };
-
-        combo_seoto_cho {
-            timeout-ms = <50>;
-            key-positions = <7 8>; // O + W で「ー」(MINUS)
-            bindings = <&kp MINUS>;
-            layers = <LAYER_SEOTO>;
-        };
     };
 
     macros {
@@ -100,6 +45,21 @@
     };
 
     behaviors {
+        /* Shared on/off behaviors: keep the number-layer latch unchanged. */
+        tog_on: toggle_layer_on_only {
+            compatible = "zmk,behavior-toggle-layer";
+            #binding-cells = <1>;
+            display-name = "Toggle Layer On";
+            toggle-mode = "on";
+        };
+
+        tog_off: toggle_layer_off_only {
+            compatible = "zmk,behavior-toggle-layer";
+            #binding-cells = <1>;
+            display-name = "Toggle Layer Off";
+            toggle-mode = "off";
+        };
+
         lt_to_layer_0: lt_to_layer_0 {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_TO_0";
@@ -123,20 +83,15 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        seoto_eisu_lt: seoto_eisu_layer_tap {
+        /* Tap selects the host IME; hold keeps the existing symbol layer.
+         * Preserve the former key's tap-preferred, 200 ms hold-tap timing.
+         */
+        ime_lt: ime_layer_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            bindings = <&mo>, <&seoto_off>;
-        };
-
-        seoto_kana_lt: seoto_kana_layer_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&seoto_on>;
+            bindings = <&mo>, <&kp>;
         };
 
         scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
@@ -151,43 +106,25 @@
     keymap {
         compatible = "zmk,keymap";
 
-        Mac-Default_Layer { // 0: せおと系英字 (Mac)
+        Mac-Default_Layer { // 0: primary Romaji / English (Mac)
             bindings = <
-&kp P             &kp Z         &kp H         &kp F                      &kp TAB                            &kp J            &kp Q        &kp O          &kp W       &kp X
-&kp D             &kp S         &kp N         &kp T                      &kp G                              &kp L            &kp A        &kp I          &kp U       &kp E
-&mt LEFT_SHIFT B  &kp R         &kp M         &kp C                      &kp K        &none  &kp Y            &mkp MB1     &lt LAYER_SCROLL ENTER  &dot_comma  &mt RIGHT_SHIFT V
-&kp LCTRL         &kp LEFT_GUI  &kp LEFT_ALT  &lt LAYER_NUM LANGUAGE_2   &mt LEFT_SHIFT SPACE  &lt LAYER_PUNCT LANGUAGE_2  &bspc_del  &tog_on LAYER_NUM  &seoto_kana_lt LAYER_SYMBOL 0  &lt LAYER_SETTING HASH  &kp DELETE
+&kp W             &kp G         &kp H         &kp B             &kp J             &kp V         &kp I       &kp A                     &dot_comma  &kp F
+&kp R             &kp S         &kp N         &kp T             &kp K             &kp TAB       &kp U       &kp O                     &kp Y       &kp E
+&mt LEFT_SHIFT Z  &kp D         &kp P         &kp M             &kp L     &none   &kp X         &mkp MB1    &lt LAYER_SCROLL ENTER    &kp C       &mt RIGHT_SHIFT Q
+&kp LCTRL         &kp LEFT_GUI  &kp LEFT_ALT  &lt LAYER_NUM LANGUAGE_2   &mt LEFT_SHIFT SPACE  &lt LAYER_PUNCT LANGUAGE_2  &bspc_del  &tog_on LAYER_NUM  &ime_lt LAYER_SYMBOL LANGUAGE_1  &lt LAYER_SETTING HASH  &kp DELETE
             >;
         };
 
-        Win-Default_Layer { // 1: せおと系英字 (Windows)
+        Win-Default_Layer { // 1: primary Romaji / English (Windows)
             bindings = <
-&kp P             &kp Z         &kp H         &kp F                      &kp TAB                            &kp J            &kp Q        &kp O          &kp W       &kp X
-&kp D             &kp S         &kp N         &kp T                      &kp G                              &kp L            &kp A        &kp I          &kp U       &kp E
-&mt LEFT_SHIFT B  &kp R         &kp M         &kp C                      &kp K        &none  &kp Y            &mkp MB1     &lt LAYER_SCROLL ENTER  &dot_comma  &mt RIGHT_SHIFT V
-&kp LCTRL         &kp LEFT_ALT  &kp LEFT_GUI  &lt LAYER_NUM LANGUAGE_2   &mt LEFT_SHIFT SPACE  &lt LAYER_PUNCT LANGUAGE_2  &bspc_del  &tog_on LAYER_NUM  &seoto_kana_lt LAYER_SYMBOL 0  &lt LAYER_SETTING HASH  &kp DELETE
+&kp W             &kp G         &kp H         &kp B             &kp J             &kp V         &kp I       &kp A                     &dot_comma  &kp F
+&kp R             &kp S         &kp N         &kp T             &kp K             &kp TAB       &kp U       &kp O                     &kp Y       &kp E
+&mt LEFT_SHIFT Z  &kp D         &kp P         &kp M             &kp L     &none   &kp X         &mkp MB1    &lt LAYER_SCROLL ENTER    &kp C       &mt RIGHT_SHIFT Q
+&kp LCTRL         &kp LEFT_ALT  &kp LEFT_GUI  &lt LAYER_NUM LANGUAGE_2   &mt LEFT_SHIFT SPACE  &lt LAYER_PUNCT LANGUAGE_2  &bspc_del  &tog_on LAYER_NUM  &ime_lt LAYER_SYMBOL LANGUAGE_1  &lt LAYER_SETTING HASH  &kp DELETE
             >;
         };
 
-        Seoto_Layer { // 2: せおと配列 (かな)
-            bindings = <
-&kp P           &kp Z         &kp H         &kp F                     &kp TAB                                &none      &seoto_yo  &kp O      &kp W       &seoto_ya
-&kp D           &kp S         &kp N         &kp T                     &kp G                                  &seoto_yu  &kp A      &kp I      &kp U       &kp E
-&mt LEFT_SHIFT B &kp R        &kp M         &kp K                     &kp C            &none              &kp Y      &mkp MB1   &lt LAYER_SCROLL ENTER  &dot_comma  &mt RIGHT_SHIFT V
-&lm_seoto_ctrl  &lm_seoto_alt &lm_seoto_gui &lt LAYER_NUM LANGUAGE_2  &mt LEFT_SHIFT SPACE  &seoto_eisu_lt LAYER_PUNCT 0  &bspc_del  &tog_on LAYER_NUM  &lt LAYER_SYMBOL LANGUAGE_1  &lt LAYER_SETTING HASH  &kp DELETE
-            >;
-        };
-
-        Naginata_Layer { // 3: 薙刀式（切替コンボは従来どおり）
-            bindings = <
-&ng Q             &ng W         &ng E         &ng R             &ng T                                  &ng Y  &ng U     &ng I             &ng O       &ng P
-&ng A             &ng S         &ng D         &ng F             &ng G                                  &ng H  &ng J     &ng K             &ng L       &ng SEMI
-&ng Z             &ng X         &ng C         &ng V             &ng B      &trans                      &ng N  &mkp MB1  &lt LAYER_SCROLL ENTER  &ng PERIOD  &ng SLASH
-&lm_win_ctrl      &lm_win_alt   &lm_win_gui   &lt LAYER_NUM LANGUAGE_2  &ng SPACE  &lt LAYER_PUNCT LANGUAGE_2  &bspc_del  &tog_on LAYER_NUM  &lt LAYER_SYMBOL LANGUAGE_1  &lt LAYER_SETTING HASH  &kp DELETE
-            >;
-        };
-
-        Num_Layer { // 4: original two-row number layout; pin/unpin at position 38
+        Num_Layer { // 2: original two-row number layout; pin/unpin at position 38
             bindings = <
 &kp F1  &kp F2          &kp UP_ARROW    &kp F4           &kp F5           &kp N1     &kp N2                &kp N3                 &kp N4           &kp N5
 &kp F6  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp F10          &kp N6     &kp N7                &kp N8                 &kp N9           &kp N0
@@ -196,7 +133,7 @@
             >;
         };
 
-        Punctuation_Layer { // 5: original Win-Function positions, shared by JIS hosts
+        Punctuation_Layer { // 3: original Win-Function positions, shared by JIS hosts
             bindings = <
 &kp F1   &kp F2   &kp F3  &kp F4      &kp F5           &none                 &kp JP_LBRACKET  &kp JP_RBRACKET    &kp PERCENT   &kp DOLLAR
 &kp F6   &kp F7   &kp F8  &kp F9      &kp F10          &kp LEFT_PARENTHESIS  &kp JP_LPAREN    &kp JP_RPAREN      &kp JP_LBRACE  &kp JP_RBRACE
@@ -207,7 +144,7 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        Symbol_Layer { // 6: original Win-Common symbol positions, without OS shortcuts
+        Symbol_Layer { // 4: original Win-Common symbol positions, without OS shortcuts
             bindings = <
 &kp JP_AT       &kp EXCLAMATION  &kp JP_DQUOTE     &none          &trans          &kp JP_PIPE       &kp JP_EQUAL    &kp JP_TILDE       &kp JP_CARET     &kp PERCENT
 &kp HASH        &kp QUESTION     &kp JP_QUOTE      &kp SEMICOLON  &none           &kp JP_AMPERSAND  &kp JP_PLUS     &kp MINUS          &kp JP_ASTERISK  &kp SLASH
@@ -218,7 +155,7 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        Scroll_Layer { // 7: Enter長押し中のみトラックボールをスクロール化
+        Scroll_Layer { // 5: Enter長押し中のみトラックボールをスクロール化
             bindings = <
 &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
@@ -227,12 +164,12 @@
             >;
         };
 
-        Setting_Layer { // 8
+        Setting_Layer { // 6
             bindings = <
 &studio_unlock     &trans  &trans  &trans  &trans                 &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&to LAYER_SEOTO    &trans  &trans  &trans  &trans                 &trans        &trans          &trans        &trans        &trans
+&none              &trans  &trans  &trans  &trans                 &trans        &trans          &trans        &trans        &trans
 &trans             &trans  &trans  &trans  &trans  &to LAYER_MAC  &ind_bat      &trans          &trans        &trans        &bt BT_CLR
-&to LAYER_NAGINATA &trans  &trans  &trans  &trans  &to LAYER_WIN  &bootloader   &studio_unlock  &sys_reset    &trans        &bt BT_CLR_ALL
+&none              &trans  &trans  &trans  &trans  &to LAYER_WIN  &bootloader   &studio_unlock  &sys_reset    &trans        &bt BT_CLR_ALL
             >;
 
             sensor-bindings = <&scroll_up_down>;
